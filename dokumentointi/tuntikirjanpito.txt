@@ -1,0 +1,7 @@
+[14.01.]
+Käytetty aika: ~1h
+Ajankäytön kohde: Gitin käyttöönotto, repositorion luonti
+
+[15.01.]
+Käytetty aika: ~3h
+Ajankäytön kohde: Idean keksiminen, projektin luonti ja konfigurointi, ensimmäisen deadlinen vaatimusten täyttäminen

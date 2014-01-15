@@ -1,0 +1,12 @@
+AIHE: Palikkapeli
+Toteutetaan reaaliaikainen pulmapeli, jossa pelaaja ohjaa kahta (tai ehkä useampaa?) eriväristä Palikkaa useiden tasojen läpi. Pelin ydin on siinä, että Palikoiden tiellä on useita esteitä, jotka voi ohittaa vain käyttämällä oikean väristä Palikkaa. Mahdollisia esteitä voisi olla esimerkiksi liikuteltavat laatikot, yhden värin läpäisevät seinät, jne... Tasojen ratkaisemiseksi tarvitsee siis käyttää molempia(/kaikkia) Palikoita saumattomasti.
+
+Pelin mekaniikan luonteesta johtuen peliin on mahdollista lisätä myös kaksin-/moninpelitila melko helposti.
+
+________________________
+KÄYTTÄJÄT: Pelaaja
+
+________________________
+PELAAJAN TOIMINNOT:
+* Pelaaminen
+* ...
