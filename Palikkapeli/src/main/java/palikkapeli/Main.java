@@ -1,16 +1,15 @@
 package palikkapeli;
 
+import palikkapeli.peli.Peli;
+
 /**
- * Placeholder
+ * Main-luokka, huolehtii pelin käynnistämisestä
  *
  * @author Janne Ruoho
  */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        System.out.println("main");
+    public static void main(String[] args) throws InterruptedException {
+        Peli peli = new Peli();
     }
 }
