@@ -17,3 +17,7 @@ Ajankäytön kohde: Logiikan ja grafiikan rungon koodausta, näppäimistönkäsi
 [21.01.]
 Käytetty aika: ~2h
 Ajankäytön kohde: Testien kirjoittamista
+
+[22.01.]
+Käytetty aika: ~2h
+Ajankäytön kohde: Lisää testien kirjoittamista, luokkakaavion tarkentaminen
