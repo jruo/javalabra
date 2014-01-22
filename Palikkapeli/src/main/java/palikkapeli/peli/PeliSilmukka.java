@@ -115,7 +115,7 @@ public abstract class PeliSilmukka<T> implements Runnable {
      *
      * @param paivitykseenKulunutAika Päivitykseen kulunut aika nanosekunteina
      */
-    private void nuku(long paivitykseenKulunutAika) {
+    public void nuku(long paivitykseenKulunutAika) {
         double nukuttavaAika = laskeNukuttavaAika(paivitykseenKulunutAika);
         try {
             Thread.sleep(
@@ -131,7 +131,7 @@ public abstract class PeliSilmukka<T> implements Runnable {
      * @param paivitykseenKulunutAika Päivitykseen kulunut aika
      * @return Nukuttava aika nanosekunteina
      */
-    private double laskeNukuttavaAika(long paivitykseenKulunutAika) {
+    public double laskeNukuttavaAika(long paivitykseenKulunutAika) {
         double paivityksenOptimiAika = (1D / PAIVITYKSIA_SEKUNNISSA) * 1000000000D;
         return paivityksenOptimiAika - paivitykseenKulunutAika;
     }
@@ -143,7 +143,7 @@ public abstract class PeliSilmukka<T> implements Runnable {
      * @param nanoAika Aika nanosekunneissa
      * @return Aika millisekunneissa
      */
-    private long laskeMilliAika(double nanoAika) {
+    public long laskeMilliAika(double nanoAika) {
         long milliAika = (long) nanoAika / 1000000;
         if (milliAika < 0) {
             return 0;
@@ -158,7 +158,7 @@ public abstract class PeliSilmukka<T> implements Runnable {
      * @param nanoAika Aika nanosekunneissa
      * @return Ylimääräiset nanosekunnit
      */
-    private int laskeYlimaarainenNanoAika(double nanoAika) {
+    public int laskeYlimaarainenNanoAika(double nanoAika) {
         //jaetaan, pyöristetään alaspäin ja kerrotaan uudelleen jotta saadaan pelkät millisekunnit
         long milliAika = (long) nanoAika / 1000000;
         long pyoristettyNanoAika = milliAika * 1000000;

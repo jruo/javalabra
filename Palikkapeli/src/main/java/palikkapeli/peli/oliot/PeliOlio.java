@@ -51,7 +51,7 @@ public abstract class PeliOlio implements Looginen, Graafinen {
         this.nappaimisto = peli.getNappaimisto();
         this.x = x;
         this.y = y;
-        asetaKuva(kuvanTiedostonimi);
+        setKuva(kuvanTiedostonimi);
     }
 
     /**
@@ -59,8 +59,17 @@ public abstract class PeliOlio implements Looginen, Graafinen {
      *
      * @param tiedostonimi
      */
-    public final void asetaKuva(String tiedostonimi) {
+    public final void setKuva(String tiedostonimi) {
         // TODO: kuvan lataus
+    }
+
+    /**
+     * Palauttaa kuvan
+     *
+     * @return Kuva
+     */
+    public final BufferedImage getKuva() {
+        return kuva;
     }
 
     /**

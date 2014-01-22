@@ -41,11 +41,12 @@
                 <configuration>
                     <instrumentation>
                         <includes>
-                            <include>palikkapeli.peli/*.class</include>
-                            <include>palikkapeli.peli.grafiikka/*.class</include>
-                            <include>palikkapeli.peli.logiikka/*.class</include>
-                            <include>palikkapeli.peli.taso/*.class</include>
-                            <include>palikkapeli.ui.syote/*.class</include>
+                            <include>palikkapeli/peli/*.class</include>
+                            <include>palikkapeli/peli/oliot/*.class</include>
+                            <include>palikkapeli/peli/grafiikka/*.class</include>
+                            <include>palikkapeli/peli/logiikka/*.class</include>
+                            <include>palikkapeli/peli/taso/*.class</include>
+                            <include>palikkapeli/ui/syote/*.class</include>
                         </includes>
                     </instrumentation>
                 </configuration>
@@ -57,10 +58,12 @@
                 <version>0.30</version>
                 <configuration>
                     <targetClasses>
-                        <param>palikkapeli*</param>
+                        <param>palikkapeli.peli*</param>
+                        <param>palikkapeli.ui.syote*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>palikkapeli*</param>
+                        <param>palikkapeli.peli*</param>
+                        <param>palikkapeli.ui.syote*</param>
                     </targetTests>
                 </configuration>
             </plugin>

@@ -34,7 +34,6 @@ public class Nappaimisto {
      * Synkronoi näppäimistön tilan tarkistuksia varten
      */
     public void synkronoi() {
-        nappaintenSynkronoituTila.clear();
         nappaintenSynkronoituTila.putAll(nappaintenTodellinenTila);
     }
 

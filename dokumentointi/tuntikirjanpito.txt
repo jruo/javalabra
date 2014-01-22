@@ -9,3 +9,11 @@ Ajankäytön kohde: Idean keksiminen, projektin luonti ja konfigurointi, ensimm�
 [16.01.]
 Käytetty aika: ~5h
 Ajankäytön kohde: Rakenteen suunnittelu ja alustavan luokkakaavion piirtäminen. Koodauksen aloittaminen
+
+[17.01.]
+Käytetty aika: ~4h
+Ajankäytön kohde: Logiikan ja grafiikan rungon koodausta, näppäimistönkäsittelijää yms
+
+[21.01.]
+Käytetty aika: ~2h
+Ajankäytön kohde: Testien kirjoittamista
