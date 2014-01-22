@@ -31,12 +31,12 @@ public class NappaimistoTest {
     }
 
     @Test
-    public void getNappaintenSynkronoituTilaPalaittaaKartan() {
+    public void getNappaintenSynkronoituTilaPalauttaaKartan() {
         assertTrue(nap.getNappaintenSynkronoituTila() != null);
     }
 
     @Test
-    public void asetaNappaimenTilaAsettaaAsettaaOikein() {
+    public void asetaNappaimenTilaAsettaaOikein() {
         Map<Integer, Boolean> kartta = nap.getNappaintenTodellinenTila();
         assertEquals(null, kartta.get(10));
         assertEquals(null, kartta.get(20));

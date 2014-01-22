@@ -76,7 +76,7 @@ public class PeliSilmukkaTest {
     }
 
     @Test
-    public void tyhjennaOlioitToimii() {
+    public void tyhjennaOliotToimii() {
         silmukka.lisaaOliot(o1, o2, o3);
         olioita(3);
         silmukka.tyhjennaOliot();
