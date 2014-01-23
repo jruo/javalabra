@@ -16,9 +16,9 @@ public class Ikkuna extends JFrame {
 
     public Ikkuna(int leveys, int korkeus) {
         setResizable(false);
-        setVisible(true);
         luoPaneeli(leveys, korkeus);
         setLocationRelativeTo(null);
+        setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 

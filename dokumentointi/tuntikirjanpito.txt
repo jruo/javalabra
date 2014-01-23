@@ -21,3 +21,7 @@ Ajankäytön kohde: Testien kirjoittamista
 [22.01.]
 Käytetty aika: ~2h
 Ajankäytön kohde: Lisää testien kirjoittamista, luokkakaavion tarkentaminen
+
+[23.01.]
+Käytetty aika: ~0.5h
+Ajankäytön kohde: Pieni korjaus ikkunaan, jotta toimii myös ubuntulla
