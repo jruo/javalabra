@@ -1,29 +1,29 @@
 package palikkapeli.peli.oliot;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
 import palikkapeli.peli.Peli;
+import palikkapeli.ui.grafiikka.alkeispiirros.Muokattava;
 
 /**
- * Debug/testausluokka, joka piirtää ruudulle todellisen logiikan ja grafiikan
+ * Debug/testausluokka, joka piirtää ruudulle todellisen logiikan
  * päivitysnopeuden
  *
  * @author Janne Ruoho
  */
 public class FPSLaskuri extends PeliOlio {
 
-    private long logiikkaAika, grafiikkaAika;
+    private long logiikkaAika;
     private int logiikkaLaskuri, logiikkaMaxLaskuri;
-    private int grafiikkaLaskuri, grafiikkaMaxLaskuri;
+    private Muokattava<String> teksti;
 
     public FPSLaskuri(Peli peli) {
         super(peli);
         logiikkaAika = System.currentTimeMillis();
-        grafiikkaAika = System.currentTimeMillis();
         logiikkaLaskuri = 0;
-        grafiikkaLaskuri = 0;
         logiikkaMaxLaskuri = 0;
-        grafiikkaMaxLaskuri = 0;
+    }
+
+    public void asetaMuokattavaTeksti(Muokattava<String> teksti) {
+        this.teksti = teksti;
     }
 
     @Override
@@ -32,20 +32,8 @@ public class FPSLaskuri extends PeliOlio {
             logiikkaAika = System.currentTimeMillis();
             logiikkaMaxLaskuri = logiikkaLaskuri;
             logiikkaLaskuri = 0;
+            teksti.muokkaa("FPS: " + logiikkaMaxLaskuri);
         }
         logiikkaLaskuri++;
-    }
-
-    @Override
-    public void piirra(Graphics2D g) {
-        if (System.currentTimeMillis() - grafiikkaAika >= 1000) {
-            grafiikkaAika = System.currentTimeMillis();
-            grafiikkaMaxLaskuri = grafiikkaLaskuri;
-            grafiikkaLaskuri = 0;
-        }
-        grafiikkaLaskuri++;
-
-        g.setColor(Color.RED);
-        g.drawString("L: " + logiikkaMaxLaskuri + ", G: " + grafiikkaMaxLaskuri, 5, 15);
     }
 }

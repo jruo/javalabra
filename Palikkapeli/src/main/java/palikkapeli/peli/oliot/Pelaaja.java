@@ -1,7 +1,5 @@
 package palikkapeli.peli.oliot;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import palikkapeli.peli.Peli;
 
@@ -30,13 +28,5 @@ public class Pelaaja extends PeliOlio {
         if (nappaimisto.onPainettu(KeyEvent.VK_LEFT)) {
             x -= 3;
         }
-    }
-
-    @Override
-    public void piirra(Graphics2D g) {
-        g.setColor(Color.BLUE);
-        g.fillRect(x, y, 79, 15);
-        g.setColor(Color.GREEN);
-        g.drawString("Hello World", x + 4, y + 12);
     }
 }

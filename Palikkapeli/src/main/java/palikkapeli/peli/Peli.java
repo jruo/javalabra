@@ -1,6 +1,6 @@
 package palikkapeli.peli;
 
-import palikkapeli.peli.grafiikka.Grafiikka;
+import palikkapeli.ui.grafiikka.Grafiikka;
 import palikkapeli.peli.logiikka.Logiikka;
 import palikkapeli.peli.taso.TasonVaihtaja;
 import palikkapeli.ui.Ikkuna;

@@ -43,7 +43,6 @@
                         <includes>
                             <include>palikkapeli/peli/*.class</include>
                             <include>palikkapeli/peli/oliot/*.class</include>
-                            <include>palikkapeli/peli/grafiikka/*.class</include>
                             <include>palikkapeli/peli/logiikka/*.class</include>
                             <include>palikkapeli/peli/taso/*.class</include>
                             <include>palikkapeli/ui/syote/*.class</include>

@@ -25,3 +25,11 @@ Ajankäytön kohde: Lisää testien kirjoittamista, luokkakaavion tarkentaminen
 [23.01.]
 Käytetty aika: ~0.5h
 Ajankäytön kohde: Pieni korjaus ikkunaan, jotta toimii myös ubuntulla
+
+[25.01.]
+Käytetty aika: ~2h
+Ajankäytön kohde: Suunnittelua käyttöliittymän erottamiseksi ohjelmalogiikasta
+
+[26.01.]
+Käytetty aika: ~5h
+Ajankäytön kohde: Käyttöliittymän erottamisen ohjelmalogiikan toteuttamsita

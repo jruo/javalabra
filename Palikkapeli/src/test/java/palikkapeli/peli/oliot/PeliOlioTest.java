@@ -19,11 +19,10 @@ public class PeliOlioTest {
     public void kaikkiGetteritJaSetteritToimii() {
         Olio o1 = new Olio(new Peli());
         Olio o2 = new Olio(new Peli(), 10, 10);
-        Olio o3 = new Olio(new Peli(), 10, 10, "PeliOlioTestiKuva.png");
 
         assertEquals(0, o1.getX());
         assertEquals(0, o1.getY());
-        assertEquals(null, o1.getKuva());
+
         assertEquals(10, o2.getX());
         assertEquals(10, o2.getY());
 
@@ -32,8 +31,6 @@ public class PeliOlioTest {
 
         assertEquals(50, o1.getX());
         assertEquals(60, o1.getY());
-
-        // TODO: testaa getKuva ja setKuva
     }
 
     public class Olio extends PeliOlio {
@@ -44,10 +41,6 @@ public class PeliOlioTest {
 
         public Olio(Peli peli, int x, int y) {
             super(peli, x, y);
-        }
-
-        public Olio(Peli peli, int x, int y, String kuva) {
-            super(peli, x, y, kuva);
         }
     }
 }

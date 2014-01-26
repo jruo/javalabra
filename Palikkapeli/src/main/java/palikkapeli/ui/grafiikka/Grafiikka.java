@@ -1,4 +1,4 @@
-package palikkapeli.peli.grafiikka;
+package palikkapeli.ui.grafiikka;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -12,7 +12,7 @@ import palikkapeli.ui.PiirtoPaneeli;
  *
  * @author Janne Ruoho
  */
-public class Grafiikka extends PeliSilmukka<Graafinen> {
+public class Grafiikka extends PeliSilmukka<Piirros> {
 
     private final BufferedImage puskuriKuva;
     private final Graphics2D paneelinGrafiikka;
@@ -26,11 +26,18 @@ public class Grafiikka extends PeliSilmukka<Graafinen> {
 
     @Override
     public void paivita() {
-        kuvanGrafiikka.setColor(Color.LIGHT_GRAY);
-        kuvanGrafiikka.fillRect(0, 0, Peli.IKKUNAN_LEVEYS, Peli.IKKUNAN_KORKEUS);
-        for (Graafinen graafinen : getOliot()) {
-            graafinen.piirra(kuvanGrafiikka);
+        piirraTausta();
+        for (Piirros piirros : getOliot()) {
+            if (piirros == null) {
+                continue;
+            }
+            piirros.piirra(kuvanGrafiikka);
         }
         paneelinGrafiikka.drawImage(puskuriKuva, 0, 0, null);
+    }
+
+    public void piirraTausta() {
+        kuvanGrafiikka.setColor(Color.LIGHT_GRAY);
+        kuvanGrafiikka.fillRect(0, 0, Peli.IKKUNAN_LEVEYS, Peli.IKKUNAN_KORKEUS);
     }
 }
