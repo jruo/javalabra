@@ -3,10 +3,10 @@ package palikkapeli.peli.taso;
 import java.awt.Color;
 import java.util.ArrayList;
 import palikkapeli.peli.Peli;
-import palikkapeli.peli.oliot.FPSLaskuri;
-import palikkapeli.peli.oliot.KiinteaSeina;
-import palikkapeli.peli.oliot.Pelaaja;
-import palikkapeli.peli.oliot.PeliOlio;
+import palikkapeli.peli.olio.FPSLaskuri;
+import palikkapeli.peli.olio.KiinteaSeina;
+import palikkapeli.peli.olio.Pelaaja;
+import palikkapeli.peli.olio.PeliOlio;
 import palikkapeli.ui.grafiikka.Piirros;
 import palikkapeli.ui.grafiikka.alkeispiirros.Teksti;
 
@@ -32,16 +32,13 @@ public class TasonVaihtaja {
         ArrayList<Piirros> piirrokset = new ArrayList<>();
 
         Pelaaja pelaaja = new Pelaaja(peli, 20, 20);
-        Piirros pelaajanPiirros = new Piirros(pelaaja);
-        pelaajanPiirros.lisaaSuorakulmio(0, 0, 20, 20, Color.red, true);
-        pelaajanPiirros.lisaaSuorakulmio(0, 20, 20, 20, Color.blue, true);
+        Piirros pelaajanPiirros = new Piirros(pelaaja, "/kuvat/pelaaja.png");
         oliot.add(pelaaja);
         piirrokset.add(pelaajanPiirros);
 
         for (int i = 0; i < 10; i++) {
             KiinteaSeina seina = new KiinteaSeina(peli, 0, i * 20);
-            Piirros seinanPiirros = new Piirros(seina);
-            seinanPiirros.lisaaSuorakulmio(0, 0, 20, 20, Color.gray, true);
+            Piirros seinanPiirros = new Piirros(seina, "/kuvat/kiinteaseina.png");
             oliot.add(seina);
             piirrokset.add(seinanPiirros);
         }

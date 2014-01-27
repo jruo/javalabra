@@ -28,10 +28,9 @@ public class Grafiikka extends PeliSilmukka<Piirros> {
     public void paivita() {
         piirraTausta();
         for (Piirros piirros : getOliot()) {
-            if (piirros == null) {
-                continue;
+            if (piirros != null) {
+                piirros.piirra(kuvanGrafiikka);
             }
-            piirros.piirra(kuvanGrafiikka);
         }
         paneelinGrafiikka.drawImage(puskuriKuva, 0, 0, null);
     }

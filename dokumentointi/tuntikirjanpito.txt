@@ -32,4 +32,8 @@ Ajankäytön kohde: Suunnittelua käyttöliittymän erottamiseksi ohjelmalogiika
 
 [26.01.]
 Käytetty aika: ~5h
-Ajankäytön kohde: Käyttöliittymän erottamisen ohjelmalogiikan toteuttamsita
+Ajankäytön kohde: Käyttöliittymän erottamisen ohjelmalogiikan toteuttamista
+
+[27.01.]
+Käytetty aika: ~6h
+Ajankäytön kohde: Käyttöliittymän (näppäintekäsittelyn) erottaminen logiikasta, kuvien lataaminen

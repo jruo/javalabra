@@ -1,4 +1,4 @@
-package palikkapeli.peli.oliot;
+package palikkapeli.peli.olio;
 
 import palikkapeli.peli.Peli;
 

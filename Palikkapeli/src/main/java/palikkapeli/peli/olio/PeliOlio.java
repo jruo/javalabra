@@ -1,8 +1,7 @@
-package palikkapeli.peli.oliot;
+package palikkapeli.peli.olio;
 
 import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.Looginen;
-import palikkapeli.ui.syote.Nappaimisto;
 
 /**
  * Yliluokka kaikille pelin olioille
@@ -12,7 +11,7 @@ import palikkapeli.ui.syote.Nappaimisto;
 public abstract class PeliOlio implements Looginen {
 
     protected int x, y;
-    protected Nappaimisto nappaimisto;
+    protected Peli peli;
 
     /**
      * Luo PeliOlion annettuun Peliin
@@ -31,7 +30,7 @@ public abstract class PeliOlio implements Looginen {
      * @param y Y-koordinaatti
      */
     public PeliOlio(Peli peli, int x, int y) {
-        this.nappaimisto = peli.getNappaimisto();
+        this.peli = peli;
         this.x = x;
         this.y = y;
     }

@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
-import palikkapeli.peli.oliot.PeliOlio;
+import palikkapeli.peli.olio.PeliOlio;
 import palikkapeli.ui.grafiikka.alkeispiirros.Alkeispiirros;
 import palikkapeli.ui.grafiikka.alkeispiirros.Kuva;
 import palikkapeli.ui.grafiikka.alkeispiirros.Suorakulmio;
@@ -37,7 +37,10 @@ public final class Piirros {
     }
 
     public Kuva lisaaKuva(int xd, int yd, String kuvanTiedostonimi) {
-        Kuva kuva = new Kuva(null, xd, yd);
+        if (kuvanTiedostonimi == null) {
+            return null;
+        }
+        Kuva kuva = new Kuva(KuvanLataaja.lataaKuva(kuvanTiedostonimi), xd, yd);
         osat.add(kuva);
         return kuva;
     }

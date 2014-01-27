@@ -21,7 +21,7 @@ public class LogiikkaTest {
         l2 = new LooginenTestiLuokka();
         l3 = new LooginenTestiLuokka();
         nap = new Nappaimisto();
-        log = new Logiikka(nap);
+        log = new Logiikka();
     }
 
     @Test

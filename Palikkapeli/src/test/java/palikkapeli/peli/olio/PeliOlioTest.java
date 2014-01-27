@@ -1,5 +1,6 @@
-package palikkapeli.peli.oliot;
+package palikkapeli.peli.olio;
 
+import palikkapeli.peli.olio.PeliOlio;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package palikkapeli.peli.oliot;
+package palikkapeli.peli.olio;
 
 import palikkapeli.peli.Peli;
 import palikkapeli.ui.grafiikka.alkeispiirros.Muokattava;
@@ -11,15 +11,15 @@ import palikkapeli.ui.grafiikka.alkeispiirros.Muokattava;
  */
 public class FPSLaskuri extends PeliOlio {
 
-    private long logiikkaAika;
-    private int logiikkaLaskuri, logiikkaMaxLaskuri;
+    private long aika;
+    private int laskuri, laskuriMax;
     private Muokattava<String> teksti;
 
     public FPSLaskuri(Peli peli) {
         super(peli);
-        logiikkaAika = System.currentTimeMillis();
-        logiikkaLaskuri = 0;
-        logiikkaMaxLaskuri = 0;
+        aika = System.currentTimeMillis();
+        laskuri = 0;
+        laskuriMax = 0;
     }
 
     public void asetaMuokattavaTeksti(Muokattava<String> teksti) {
@@ -28,12 +28,12 @@ public class FPSLaskuri extends PeliOlio {
 
     @Override
     public void suoritaLogiikka() {
-        if (System.currentTimeMillis() - logiikkaAika >= 1000) {
-            logiikkaAika = System.currentTimeMillis();
-            logiikkaMaxLaskuri = logiikkaLaskuri;
-            logiikkaLaskuri = 0;
-            teksti.muokkaa("FPS: " + logiikkaMaxLaskuri);
+        if (System.currentTimeMillis() - aika >= 1000) {
+            aika = System.currentTimeMillis();
+            laskuriMax = laskuri;
+            laskuri = 0;
+            teksti.muokkaa("FPS: " + laskuriMax);
         }
-        logiikkaLaskuri++;
+        laskuri++;
     }
 }
