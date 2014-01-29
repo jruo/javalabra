@@ -16,7 +16,7 @@ public class PeliOlioTest {
 
     @Before
     public void setUp() {
-        o1 = new PeliOlioTestiLuokka(new Peli());
+        o1 = new PeliOlioTestiLuokka(new Peli(), 0, 0);
         o2 = new PeliOlioTestiLuokka(new Peli(), 10, 10);
     }
 

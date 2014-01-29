@@ -2,6 +2,7 @@ package palikkapeli.peli.olio;
 
 import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.ohjaus.Liikkuva;
+import palikkapeli.ui.grafiikka.Piirros;
 
 /**
  * Pelaajaluokka
@@ -20,21 +21,26 @@ public class Pelaaja extends PeliOlio implements Liikkuva {
 
     @Override
     public void liikuYlos() {
-        y -= 3;
+        y -= 2;
     }
 
     @Override
     public void liikuAlas() {
-        y += 3;
+        y += 2;
     }
 
     @Override
     public void liikuVasemmalle() {
-        x -= 3;
+        x -= 2;
     }
 
     @Override
     public void liikuOikealle() {
-        x += 3;
+        x += 2;
+    }
+
+    @Override
+    public Piirros luoOmaPiirros() {
+        return new Piirros(this, "/kuvat/pelaaja.png");
     }
 }

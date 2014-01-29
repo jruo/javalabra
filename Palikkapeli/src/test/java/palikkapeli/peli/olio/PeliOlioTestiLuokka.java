@@ -1,6 +1,7 @@
 package palikkapeli.peli.olio;
 
 import palikkapeli.peli.Peli;
+import palikkapeli.ui.grafiikka.Piirros;
 
 /**
  *
@@ -8,11 +9,12 @@ import palikkapeli.peli.Peli;
  */
 public class PeliOlioTestiLuokka extends PeliOlio {
 
-    public PeliOlioTestiLuokka(Peli peli) {
-        super(peli);
-    }
-
     public PeliOlioTestiLuokka(Peli peli, int x, int y) {
         super(peli, x, y);
+    }
+
+    @Override
+    public Piirros luoOmaPiirros() {
+        return new Piirros(this);
     }
 }

@@ -3,6 +3,7 @@ package palikkapeli.peli.olio;
 import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.Looginen;
 import palikkapeli.peli.logiikka.ohjaus.Ohjautuva;
+import palikkapeli.ui.grafiikka.Piirros;
 
 /**
  * Yliluokka kaikille pelin olioille
@@ -13,15 +14,6 @@ public abstract class PeliOlio implements Looginen, Ohjautuva {
 
     protected int x, y;
     protected Peli peli;
-
-    /**
-     * Luo PeliOlion annettuun Peliin
-     *
-     * @param peli Peli
-     */
-    public PeliOlio(Peli peli) {
-        this(peli, 0, 0);
-    }
 
     /**
      * Luo PeliOlion annettuun Peliin ja koordinaatteihin
@@ -73,7 +65,15 @@ public abstract class PeliOlio implements Looginen, Ohjautuva {
         this.y = y;
     }
 
+    /**
+     * Metodi, jossa PeliOlio luo oman piirroksensa
+     *
+     * @return Piirros
+     */
+    public abstract Piirros luoOmaPiirros();
+
     @Override
     public void suoritaLogiikka() {
     }
+
 }

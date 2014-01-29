@@ -22,7 +22,7 @@ public class TasonLataaja {
         return null;
     }
 
-    private BufferedReader luoLukija(String tiedostonimi) {
+    public BufferedReader luoLukija(String tiedostonimi) {
         InputStream striimi = getClass().getResourceAsStream(tiedostonimi);
         BufferedReader lukija = new BufferedReader(new InputStreamReader(striimi));
         return lukija;
