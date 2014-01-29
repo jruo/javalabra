@@ -12,7 +12,7 @@ import palikkapeli.peli.logiikka.ohjaus.Ohjautuva;
  */
 public class Ohjain extends PeliSilmukka<Ohjautuva> {
 
-    private Nappaimisto nappaimisto;
+    private final Nappaimisto nappaimisto;
 
     public Ohjain(Nappaimisto nappaimisto) {
         this.nappaimisto = nappaimisto;
@@ -40,7 +40,7 @@ public class Ohjain extends PeliSilmukka<Ohjautuva> {
     @Override
     public void paivita() {
         nappaimisto.synkronoi();
-        for (Ohjautuva ohjattava : getOliot()) {
+        for (Ohjautuva ohjattava : getPaivitettavat()) {
             kasitteleOhjattava(ohjattava);
         }
     }
@@ -51,7 +51,7 @@ public class Ohjain extends PeliSilmukka<Ohjautuva> {
         ALAS(KeyEvent.VK_DOWN),
         VASEN(KeyEvent.VK_LEFT),
         OIKEA(KeyEvent.VK_RIGHT);
-        private int nappainkoodi;
+        private final int nappainkoodi;
 
         private Nappain(int nappainkoodi) {
             this.nappainkoodi = nappainkoodi;

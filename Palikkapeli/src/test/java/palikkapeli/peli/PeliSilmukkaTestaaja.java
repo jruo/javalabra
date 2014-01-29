@@ -8,7 +8,7 @@ public class PeliSilmukkaTestaaja extends PeliSilmukka<PeliSilmukkaTestaajaRajap
 
     @Override
     public void paivita() {
-        for (PeliSilmukkaTestaajaRajapinta pstr : getOliot()) {
+        for (PeliSilmukkaTestaajaRajapinta pstr : getPaivitettavat()) {
             pstr.testaa();
         }
     }

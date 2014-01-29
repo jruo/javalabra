@@ -3,7 +3,8 @@ package palikkapeli.ui.syote;
 import java.awt.event.KeyEvent;
 import java.util.Map;
 import javax.swing.JFrame;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,7 +1,7 @@
 package palikkapeli.peli.olio;
 
-import palikkapeli.peli.olio.PeliOlio;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 import palikkapeli.peli.Peli;
@@ -12,15 +12,16 @@ import palikkapeli.peli.Peli;
  */
 public class PeliOlioTest {
 
+    PeliOlioTestiLuokka o1, o2;
+
     @Before
     public void setUp() {
+        o1 = new PeliOlioTestiLuokka(new Peli());
+        o2 = new PeliOlioTestiLuokka(new Peli(), 10, 10);
     }
 
     @Test
-    public void kaikkiGetteritJaSetteritToimii() {
-        Olio o1 = new Olio(new Peli());
-        Olio o2 = new Olio(new Peli(), 10, 10);
-
+    public void koordinaattiGetteritJaSetteritToimii() {
         assertEquals(0, o1.getX());
         assertEquals(0, o1.getY());
 
@@ -34,14 +35,9 @@ public class PeliOlioTest {
         assertEquals(60, o1.getY());
     }
 
-    public class Olio extends PeliOlio {
-
-        public Olio(Peli peli) {
-            super(peli);
-        }
-
-        public Olio(Peli peli, int x, int y) {
-            super(peli, x, y);
-        }
+    @Test
+    public void olioLisataanNappaimistonOhjaimeen() {
+        assertTrue(o1.peli.getOhjain().getPaivitettavat().contains(o1));
+        assertTrue(o2.peli.getOhjain().getPaivitettavat().contains(o2));
     }
 }

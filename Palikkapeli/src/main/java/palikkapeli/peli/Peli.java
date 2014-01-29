@@ -33,7 +33,10 @@ public class Peli {
         tasonVaihtaja = new TasonVaihtaja(this);
 
         ikkuna.lisaaNapaimistonKuuntelija(nappaimisto.getKuuntelija());
+
         ohjain.kaynnista();
+        logiikka.kaynnista();
+        grafiikka.kaynnista();
     }
 
     /**

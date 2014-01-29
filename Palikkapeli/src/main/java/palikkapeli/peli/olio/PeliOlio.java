@@ -2,13 +2,14 @@ package palikkapeli.peli.olio;
 
 import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.Looginen;
+import palikkapeli.peli.logiikka.ohjaus.Ohjautuva;
 
 /**
  * Yliluokka kaikille pelin olioille
  *
  * @author Janne Ruoho
  */
-public abstract class PeliOlio implements Looginen {
+public abstract class PeliOlio implements Looginen, Ohjautuva {
 
     protected int x, y;
     protected Peli peli;
@@ -33,6 +34,7 @@ public abstract class PeliOlio implements Looginen {
         this.peli = peli;
         this.x = x;
         this.y = y;
+        this.peli.getOhjain().lisaa(this);
     }
 
     /**

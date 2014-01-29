@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 /**
+ * Suorakulmio-alkeispiirros
  *
  * @author Janne Ruoho
  */

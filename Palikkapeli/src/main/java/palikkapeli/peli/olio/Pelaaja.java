@@ -12,7 +12,6 @@ public class Pelaaja extends PeliOlio implements Liikkuva {
 
     public Pelaaja(Peli peli, int x, int y) {
         super(peli, x, y);
-        peli.getOhjain().lisaaOlio(this);
     }
 
     @Override

@@ -8,7 +8,7 @@ package palikkapeli.peli.logiikka;
 public interface Looginen {
 
     /**
-     * Metodi, johon olion ohjelmalogiikka tulee sijoittaa
+     * Metodi, jossa olion logiikka suoritetaan
      */
     public void suoritaLogiikka();
 }

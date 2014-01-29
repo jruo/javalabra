@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Yläluokka pelin komponenteille, jotka tarvitsevat tasaisen silmukan
- * toimiakseen (logiikka, grafiikka)
+ * toimiakseen (logiikka, grafiikka, ohjaus)
  *
  * @author Janne Ruoho
  * @param <T> Silmukkaan talletettavien päivitettävien olioiden tyyppi
@@ -14,12 +14,12 @@ import java.util.List;
 public abstract class PeliSilmukka<T> implements Runnable {
 
     public static final int PAIVITYKSIA_SEKUNNISSA = 60;
-    private final List<T> oliot;
+    private final List<T> paivitettavat;
     private final Thread saie;
     private boolean kaynnissa;
 
     public PeliSilmukka() {
-        oliot = new ArrayList<>();
+        paivitettavat = new ArrayList<>();
         kaynnissa = false;
         saie = new Thread(this);
         saie.start();
@@ -30,11 +30,11 @@ public abstract class PeliSilmukka<T> implements Runnable {
      *
      * @param lisattava Lisättävä olio
      */
-    public void lisaaOlio(T lisattava) {
-        if (oliot.contains(lisattava)) {
+    public void lisaa(T lisattava) {
+        if (paivitettavat.contains(lisattava)) {
             return;
         }
-        oliot.add(lisattava);
+        paivitettavat.add(lisattava);
     }
 
     /**
@@ -42,9 +42,9 @@ public abstract class PeliSilmukka<T> implements Runnable {
      *
      * @param lisattavat Lisättävät oliot
      */
-    public void lisaaOliot(T... lisattavat) {
+    public void lisaa(T... lisattavat) {
         for (T lisattava : lisattavat) {
-            lisaaOlio(lisattava);
+            lisaa(lisattava);
         }
     }
 
@@ -53,9 +53,9 @@ public abstract class PeliSilmukka<T> implements Runnable {
      *
      * @param lisattavat Lisättävät oliot
      */
-    public void lisaaOliot(Collection<? extends T> lisattavat) {
+    public void lisaa(Collection<? extends T> lisattavat) {
         for (T t : lisattavat) {
-            lisaaOlio(t);
+            lisaa(t);
         }
     }
 
@@ -64,17 +64,17 @@ public abstract class PeliSilmukka<T> implements Runnable {
      *
      * @param poistettava Poistettava olio
      */
-    public void poistaOlio(T poistettava) {
-        if (oliot.contains(poistettava)) {
-            oliot.remove(poistettava);
+    public void poista(T poistettava) {
+        if (paivitettavat.contains(poistettava)) {
+            paivitettavat.remove(poistettava);
         }
     }
 
     /**
      * Tyhjentää päivitettävien olioiden joukon
      */
-    public void tyhjennaOliot() {
-        oliot.clear();
+    public void tyhjenna() {
+        paivitettavat.clear();
     }
 
     /**
@@ -82,8 +82,8 @@ public abstract class PeliSilmukka<T> implements Runnable {
      *
      * @return Päivitettävät oliot
      */
-    public List<T> getOliot() {
-        return oliot;
+    public List<T> getPaivitettavat() {
+        return paivitettavat;
     }
 
     /**

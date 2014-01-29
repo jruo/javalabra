@@ -2,7 +2,8 @@ package palikkapeli.peli;
 
 import java.util.ArrayList;
 import java.util.List;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,25 +28,25 @@ public class PeliSilmukkaTest {
 
     @Test
     public void getOliotToimii() {
-        assertTrue(silmukka.getOliot() != null);
+        assertTrue(silmukka.getPaivitettavat() != null);
     }
 
     @Test
     public void lisaaOlioToimii() {
         olioita(0);
-        silmukka.lisaaOlio(o1);
+        silmukka.lisaa(o1);
         olioita(1);
-        silmukka.lisaaOlio(o2);
+        silmukka.lisaa(o2);
         olioita(2);
-        silmukka.lisaaOlio(o2);
+        silmukka.lisaa(o2);
         olioita(2);
     }
 
     @Test
     public void lisaaOliotToimii1() {
-        silmukka.lisaaOliot(o1, o2);
+        silmukka.lisaa(o1, o2);
         olioita(2);
-        silmukka.lisaaOliot(o2, o3);
+        silmukka.lisaa(o2, o3);
         olioita(3);
     }
 
@@ -53,46 +54,46 @@ public class PeliSilmukkaTest {
     public void lisaaOliotToimii2() {
         List<PeliSilmukkaTestaajaToteutus> lista = new ArrayList<>();
         lista.add(o1);
-        silmukka.lisaaOliot(lista);
+        silmukka.lisaa(lista);
         olioita(1);
         lista.add(o2);
         lista.add(o3);
-        silmukka.lisaaOliot(lista);
+        silmukka.lisaa(lista);
         olioita(3);
     }
 
     @Test
     public void poistaOlioToimii() {
-        silmukka.lisaaOliot(o1, o2, o3);
+        silmukka.lisaa(o1, o2, o3);
         olioita(3);
-        silmukka.poistaOlio(o1);
+        silmukka.poista(o1);
         olioita(2);
-        silmukka.poistaOlio(o2);
+        silmukka.poista(o2);
         olioita(1);
-        silmukka.poistaOlio(o1);
+        silmukka.poista(o1);
         olioita(1);
-        silmukka.poistaOlio(o3);
+        silmukka.poista(o3);
         olioita(0);
     }
 
     @Test
     public void tyhjennaOliotToimii() {
-        silmukka.lisaaOliot(o1, o2, o3);
+        silmukka.lisaa(o1, o2, o3);
         olioita(3);
-        silmukka.tyhjennaOliot();
+        silmukka.tyhjenna();
         olioita(0);
-        silmukka.tyhjennaOliot();
+        silmukka.tyhjenna();
         olioita(0);
-        silmukka.lisaaOlio(o1);
+        silmukka.lisaa(o1);
         olioita(1);
-        silmukka.tyhjennaOliot();
+        silmukka.tyhjenna();
         olioita(0);
     }
 
     @Test
     public void kaynnistysToimii() throws InterruptedException {
         assertEquals(0, o1.getLaskuri());
-        silmukka.lisaaOlio(o1);
+        silmukka.lisaa(o1);
         silmukka.kaynnista();
         Thread.sleep(50);
         assertTrue(o1.getLaskuri() > 1);
@@ -100,7 +101,7 @@ public class PeliSilmukkaTest {
 
     @Test
     public void pysaytysToimii() throws InterruptedException {
-        silmukka.lisaaOlio(o1);
+        silmukka.lisaa(o1);
         silmukka.kaynnista();
         Thread.sleep(50);
         silmukka.pysayta();
@@ -123,7 +124,7 @@ public class PeliSilmukkaTest {
     @Test
     public void nukkuuSuunnilleenOikeanAjan() throws InterruptedException {
         //testi säädetty arvolle PAIVITYKSIA_SEKUNNISSA = 60
-        silmukka.lisaaOlio(o1);
+        silmukka.lisaa(o1);
         silmukka.kaynnista();
         Thread.sleep(50);
         assertTrue(o1.getLaskuri() < 5);
@@ -156,6 +157,6 @@ public class PeliSilmukkaTest {
     }
 
     public void olioita(int oikeaMaara) {
-        assertEquals(oikeaMaara, silmukka.getOliot().size());
+        assertEquals(oikeaMaara, silmukka.getPaivitettavat().size());
     }
 }

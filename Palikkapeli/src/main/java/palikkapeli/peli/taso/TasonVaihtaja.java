@@ -51,10 +51,7 @@ public class TasonVaihtaja {
         oliot.add(laskuri);
         piirrokset.add(laskurinPiirros);
 
-        peli.getLogiikka().lisaaOliot(oliot);
-        peli.getGrafiikka().lisaaOliot(piirrokset);
-
-        peli.getLogiikka().kaynnista();
-        peli.getGrafiikka().kaynnista();
+        peli.getLogiikka().lisaa(oliot);
+        peli.getGrafiikka().lisaa(piirrokset);
     }
 }

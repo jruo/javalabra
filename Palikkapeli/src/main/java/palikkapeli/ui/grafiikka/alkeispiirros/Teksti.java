@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 /**
+ * Teksti-alkeispiirros
  *
  * @author Janne Ruoho
  */

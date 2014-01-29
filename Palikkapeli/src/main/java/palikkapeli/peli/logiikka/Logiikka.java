@@ -11,7 +11,7 @@ public class Logiikka extends PeliSilmukka<Looginen> {
 
     @Override
     public void paivita() {
-        for (Looginen looginen : getOliot()) {
+        for (Looginen looginen : getPaivitettavat()) {
             looginen.suoritaLogiikka();
         }
     }

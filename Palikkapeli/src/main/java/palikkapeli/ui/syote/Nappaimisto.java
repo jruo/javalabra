@@ -31,7 +31,9 @@ public class Nappaimisto {
     }
 
     /**
-     * Synkronoi näppäimistön tilan tarkistuksia varten
+     * Synkronoi näppäimistön tilan tarkistuksia varten. Ilman synkronointia
+     * saattaisi tulla tilanne, että saman silmukan päivityssyklin aikana eri
+     * oliot saisivat ristiriitaista informaatiota näppäinten tiloista
      */
     public void synkronoi() {
         nappaintenSynkronoituTila.putAll(nappaintenTodellinenTila);

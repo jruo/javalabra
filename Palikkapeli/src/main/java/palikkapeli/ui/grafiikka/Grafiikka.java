@@ -27,7 +27,7 @@ public class Grafiikka extends PeliSilmukka<Piirros> {
     @Override
     public void paivita() {
         piirraTausta();
-        for (Piirros piirros : getOliot()) {
+        for (Piirros piirros : getPaivitettavat()) {
             if (piirros != null) {
                 piirros.piirra(kuvanGrafiikka);
             }
@@ -35,6 +35,10 @@ public class Grafiikka extends PeliSilmukka<Piirros> {
         paneelinGrafiikka.drawImage(puskuriKuva, 0, 0, null);
     }
 
+    /**
+     * Piirtää ikkunan taustan
+     */
+    // TODO: piirrä jotain muuta kuin harmaa laatikko
     public void piirraTausta() {
         kuvanGrafiikka.setColor(Color.LIGHT_GRAY);
         kuvanGrafiikka.fillRect(0, 0, Peli.IKKUNAN_LEVEYS, Peli.IKKUNAN_KORKEUS);
