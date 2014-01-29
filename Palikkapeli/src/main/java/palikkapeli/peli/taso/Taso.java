@@ -75,8 +75,6 @@ public class Taso {
             Constructor<?> konstruktori = luokka.getConstructors()[0];
             PeliOlio olio = (PeliOlio) konstruktori.newInstance(peli, x, y);
             return olio;
-        } catch (SecurityException ex) {
-            System.out.println("...");
         } catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
             System.out.println("Virhe luotaessa oliota luokasta " + luokka.getName());
         }
