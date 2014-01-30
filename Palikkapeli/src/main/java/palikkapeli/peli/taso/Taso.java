@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.Logiikka;
+import palikkapeli.peli.logiikka.Ruudukko;
 import palikkapeli.peli.olio.KiinteaSeina;
 import palikkapeli.peli.olio.Pelaaja;
 import palikkapeli.peli.olio.PeliOlio;
@@ -38,7 +39,7 @@ public class Taso {
     public void rakennaTaso() {
         Logiikka logiikka = peli.getLogiikka();
         Grafiikka grafiikka = peli.getGrafiikka();
-        int ruudukko = Peli.RUUDUKON_KOKO;
+        int ruudukko = Ruudukko.RUUDUN_KOKO;
 
         List<PeliOlio> oliot = new ArrayList<>();
         List<Piirros> piirrokset = new ArrayList<>();
@@ -77,9 +78,9 @@ public class Taso {
             return olio;
         } catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
             System.out.println("Virhe luotaessa oliota luokasta " + luokka.getName());
+            ex.printStackTrace();
+            System.exit(1);
+            return null;
         }
-        System.exit(1);
-        return null;
     }
-
 }

@@ -17,4 +17,8 @@ public class PeliOlioTestiLuokka extends PeliOlio {
     public Piirros luoOmaPiirros() {
         return new Piirros(this);
     }
+
+    @Override
+    public void suoritaLogiikka() {
+    }
 }

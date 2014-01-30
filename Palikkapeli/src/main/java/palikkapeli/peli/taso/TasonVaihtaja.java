@@ -13,13 +13,9 @@ public class TasonVaihtaja {
 
     public TasonVaihtaja(Peli peli) {
         this.peli = peli;
-        luoTestiTaso();
     }
 
-    /**
-     * testausmetodi
-     */
-    private void luoTestiTaso() {
+    public void seuraavaTaso() {
         TasonLataaja lataaja = new TasonLataaja(peli);
         Taso taso = lataaja.lataaTaso("/tasot/taso1");
         taso.rakennaTaso();

@@ -18,4 +18,8 @@ public class KiinteaSeina extends PeliOlio {
         return new Piirros(this, "/kuvat/kiinteaseina.png");
     }
 
+    @Override
+    public void suoritaLogiikka() {
+    }
+
 }

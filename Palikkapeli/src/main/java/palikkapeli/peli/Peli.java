@@ -1,6 +1,7 @@
 package palikkapeli.peli;
 
 import palikkapeli.peli.logiikka.Logiikka;
+import palikkapeli.peli.logiikka.Ruudukko;
 import palikkapeli.peli.taso.TasonVaihtaja;
 import palikkapeli.ui.Ikkuna;
 import palikkapeli.ui.grafiikka.Grafiikka;
@@ -16,18 +17,19 @@ public class Peli {
 
     private final Ikkuna ikkuna;
     private final Ohjain ohjain;
+    private final Ruudukko ruudukko;
     private final Logiikka logiikka;
     private final Grafiikka grafiikka;
     private final Nappaimisto nappaimisto;
     private final TasonVaihtaja tasonVaihtaja;
     public static final int IKKUNAN_LEVEYS = 500;
     public static final int IKKUNAN_KORKEUS = 400;
-    public static final int RUUDUKON_KOKO = 20;
 
     public Peli() {
         ikkuna = new Ikkuna(IKKUNAN_LEVEYS, IKKUNAN_KORKEUS);
         nappaimisto = new Nappaimisto();
         ohjain = new Ohjain(nappaimisto);
+        ruudukko = new Ruudukko();
         logiikka = new Logiikka();
         grafiikka = new Grafiikka(ikkuna.getPiirtoPaneeli());
         tasonVaihtaja = new TasonVaihtaja(this);
@@ -55,6 +57,15 @@ public class Peli {
      */
     public Ohjain getOhjain() {
         return ohjain;
+    }
+
+    /**
+     * Palauttaa pelin ruudukon
+     *
+     * @return Ruudukko
+     */
+    public Ruudukko getRuudukko() {
+        return ruudukko;
     }
 
     /**

@@ -2,6 +2,7 @@ package palikkapeli.peli.olio;
 
 import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.Looginen;
+import palikkapeli.peli.logiikka.Ruudukko;
 import palikkapeli.peli.logiikka.ohjaus.Ohjautuva;
 import palikkapeli.ui.grafiikka.Piirros;
 
@@ -27,6 +28,7 @@ public abstract class PeliOlio implements Looginen, Ohjautuva {
         this.x = x;
         this.y = y;
         this.peli.getOhjain().lisaa(this);
+        this.peli.getRuudukko().lisaaOlio(this, Ruudukko.xyRuuduksi(x, y));
     }
 
     /**
@@ -45,6 +47,15 @@ public abstract class PeliOlio implements Looginen, Ohjautuva {
      */
     public final int getY() {
         return y;
+    }
+
+    /**
+     * Palauttaa Pelin
+     *
+     * @return Peli
+     */
+    public Peli getPeli() {
+        return peli;
     }
 
     /**
@@ -71,9 +82,5 @@ public abstract class PeliOlio implements Looginen, Ohjautuva {
      * @return Piirros
      */
     public abstract Piirros luoOmaPiirros();
-
-    @Override
-    public void suoritaLogiikka() {
-    }
 
 }

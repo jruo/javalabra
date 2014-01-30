@@ -6,7 +6,7 @@ import org.junit.Before;
  *
  * @author Janne Ruoho
  */
-public class TasonVaihtajaTest {
+public class TasonLataajaTest {
 
     @Before
     public void setUp() {
