@@ -37,3 +37,11 @@ Ajankäytön kohde: Käyttöliittymän erottamisen ohjelmalogiikan toteuttamista
 [27.01.]
 Käytetty aika: ~6h
 Ajankäytön kohde: Käyttöliittymän (näppäintekäsittelyn) erottaminen logiikasta, kuvien lataaminen
+
+[29.01.]
+Käytetty aika: ~4h
+Ajankäytön kohde: Tasojen lataus- ja luontikoodia
+
+[30.01.]
+Käytetty aika: ~6h
+Ajankäytön kohde: Ruudukkosysteemi logiikkaan, testausta, uusi sekava luokkakaavio ja muuta pientä
