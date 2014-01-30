@@ -19,6 +19,7 @@ public class Ikkuna extends JFrame {
         luoPaneeli(leveys, korkeus);
         setLocationRelativeTo(null);
         setVisible(true);
+        setTitle("Palikkapeli");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 

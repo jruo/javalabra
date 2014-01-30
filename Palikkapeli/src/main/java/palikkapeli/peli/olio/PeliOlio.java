@@ -27,7 +27,6 @@ public abstract class PeliOlio implements Looginen, Ohjautuva {
         this.peli = peli;
         this.x = x;
         this.y = y;
-        this.peli.getOhjain().lisaa(this);
         this.peli.getRuudukko().lisaaOlio(this, Ruudukko.xyRuuduksi(x, y));
     }
 

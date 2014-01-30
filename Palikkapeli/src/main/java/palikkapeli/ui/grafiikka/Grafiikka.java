@@ -1,6 +1,5 @@
 package palikkapeli.ui.grafiikka;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import palikkapeli.peli.Peli;
@@ -15,6 +14,7 @@ import palikkapeli.ui.PiirtoPaneeli;
 public class Grafiikka extends PeliSilmukka<Piirros> {
 
     private final BufferedImage puskuriKuva;
+    private final BufferedImage taustaKuva;
     private final Graphics2D paneelinGrafiikka;
     private final Graphics2D kuvanGrafiikka;
 
@@ -22,6 +22,7 @@ public class Grafiikka extends PeliSilmukka<Piirros> {
         paneelinGrafiikka = (Graphics2D) piirtoPaneeli.getGraphics();
         puskuriKuva = new BufferedImage(Peli.IKKUNAN_LEVEYS, Peli.IKKUNAN_KORKEUS, BufferedImage.TYPE_INT_RGB);
         kuvanGrafiikka = puskuriKuva.createGraphics();
+        taustaKuva = KuvanLataaja.lataaKuva("/kuvat/tausta.png");
     }
 
     @Override
@@ -40,7 +41,6 @@ public class Grafiikka extends PeliSilmukka<Piirros> {
      */
     // TODO: piirrä jotain muuta kuin harmaa laatikko
     public void piirraTausta() {
-        kuvanGrafiikka.setColor(Color.LIGHT_GRAY);
-        kuvanGrafiikka.fillRect(0, 0, Peli.IKKUNAN_LEVEYS, Peli.IKKUNAN_KORKEUS);
+        kuvanGrafiikka.drawImage(taustaKuva, null, 0, 0);
     }
 }

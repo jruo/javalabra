@@ -7,12 +7,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import palikkapeli.peli.Peli;
-import palikkapeli.peli.logiikka.Logiikka;
 import palikkapeli.peli.logiikka.Ruudukko;
 import palikkapeli.peli.olio.KiinteaSeina;
 import palikkapeli.peli.olio.Pelaaja;
 import palikkapeli.peli.olio.PeliOlio;
-import palikkapeli.ui.grafiikka.Grafiikka;
 import palikkapeli.ui.grafiikka.Piirros;
 
 /**
@@ -37,8 +35,6 @@ public class Taso {
     }
 
     public void rakennaTaso() {
-        Logiikka logiikka = peli.getLogiikka();
-        Grafiikka grafiikka = peli.getGrafiikka();
         int ruudukko = Ruudukko.RUUDUN_KOKO;
 
         List<PeliOlio> oliot = new ArrayList<>();
@@ -60,8 +56,9 @@ public class Taso {
             }
         }
 
-        logiikka.lisaa(oliot);
-        grafiikka.lisaa(piirrokset);
+        peli.getLogiikka().lisaa(oliot);
+        peli.getGrafiikka().lisaa(piirrokset);
+        peli.getOhjain().lisaa(oliot);
     }
 
     public Class<? extends PeliOlio> muutaLuokaksi(int id) {

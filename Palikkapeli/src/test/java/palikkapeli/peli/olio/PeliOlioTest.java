@@ -36,12 +36,6 @@ public class PeliOlioTest {
     }
 
     @Test
-    public void olioLisataanNappaimistonOhjaimeen() {
-        assertTrue(o1.peli.getOhjain().getPaivitettavat().contains(o1));
-        assertTrue(o2.peli.getOhjain().getPaivitettavat().contains(o2));
-    }
-
-    @Test
     public void olioLisataanRuudukkoon() {
         assertTrue(o1.peli.getRuudukko().getOlioListat()[0][0].contains(o1));
         assertTrue(o2.peli.getRuudukko().getOlioListat()[0][0].contains(o2));
