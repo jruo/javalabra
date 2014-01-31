@@ -49,6 +49,11 @@ public class Taso {
                 }
 
                 Class<? extends PeliOlio> luokka = muutaLuokaksi(id);
+
+                if (luokka == null) {
+                    continue;
+                }
+
                 PeliOlio olio = luoOlio(luokka, j * ruudukko, i * ruudukko);
 
                 oliot.add(olio);

@@ -37,7 +37,7 @@ public class PeliOlioTest {
 
     @Test
     public void olioLisataanRuudukkoon() {
-        assertTrue(o1.peli.getRuudukko().getOlioListat()[0][0].contains(o1));
-        assertTrue(o2.peli.getRuudukko().getOlioListat()[0][0].contains(o2));
+        assertTrue(o1.peli.getRuudukko().getOlioJoukot()[0][0].contains(o1));
+        assertTrue(o2.peli.getRuudukko().getOlioJoukot()[0][0].contains(o2));
     }
 }

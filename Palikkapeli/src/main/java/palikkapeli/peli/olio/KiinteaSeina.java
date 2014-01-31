@@ -19,7 +19,7 @@ public class KiinteaSeina extends PeliOlio {
     }
 
     @Override
-    public void suoritaLogiikka() {
+    public void suoritaOmaLogiikka() {
     }
 
 }

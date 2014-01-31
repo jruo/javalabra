@@ -19,6 +19,6 @@ public class PeliOlioTestiLuokka extends PeliOlio {
     }
 
     @Override
-    public void suoritaLogiikka() {
+    public void suoritaOmaLogiikka() {
     }
 }

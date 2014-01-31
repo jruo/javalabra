@@ -1,26 +1,31 @@
 package palikkapeli.peli.logiikka;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import palikkapeli.peli.Peli;
-import palikkapeli.peli.olio.PeliOlio;
 
 /**
- * Peliruudukko. Jokaiseen ruudukon ruutuun voi sijoittaa PeliOlioita
+ * Peliruudukko. Jokaiseen ruudukon ruutuun voi sijoittaa T-tyyppisiä olioita
  *
  * @author Janne Ruoho
+ * @param <T> Ruudukkoon lisättävien olioiden tyyppi
  */
-public final class Ruudukko {
+public final class Ruudukko<T> {
 
     public static final int RUUDUN_KOKO = 20;
 
-    private final Set<PeliOlio>[][] oliot;
+    private final Object lukko = new Object();
+    private final Set<T>[][] oliot;
+    private final Map<T, Ruutu> sijainnit;
     private final int leveys, korkeus;
 
     public Ruudukko() {
         leveys = Peli.IKKUNAN_LEVEYS / RUUDUN_KOKO;
         korkeus = Peli.IKKUNAN_KORKEUS / RUUDUN_KOKO;
-        oliot = (HashSet<PeliOlio>[][]) new HashSet<?>[korkeus][leveys]; //???
+        oliot = (HashSet<T>[][]) new HashSet<?>[korkeus][leveys]; //???
+        sijainnit = new HashMap<>();
         alustaRuudukko();
     }
 
@@ -41,9 +46,12 @@ public final class Ruudukko {
      * @param olio Lisättävä olio
      * @param ruutu Ruutu
      */
-    public void lisaaOlio(PeliOlio olio, Ruutu ruutu) {
-        if (olionRuutu(olio) == null) { //Lisätään vain, jos olio ei ole jo ruudukossa
-            oliotRuudussa(ruutu).add(olio);
+    public void lisaaOlio(T olio, Ruutu ruutu) {
+        synchronized (lukko) {
+            if (!sijainnit.containsKey(olio)) { //Lisätään vain, jos olio ei ole jo ruudukossa
+                oliotRuudussa(ruutu).add(olio);
+                sijainnit.put(olio, ruutu);
+            }
         }
     }
 
@@ -52,10 +60,13 @@ public final class Ruudukko {
      *
      * @param olio Olio
      */
-    public void poistaOlio(PeliOlio olio) {
-        Ruutu ruutu = olionRuutu(olio);
-        if (ruutu != null) {
-            oliotRuudussa(ruutu).remove(olio);
+    public void poistaOlio(T olio) {
+        synchronized (lukko) {
+            if (sijainnit.containsKey(olio)) {
+                Ruutu ruutu = sijainnit.get(olio);
+                oliotRuudussa(ruutu).remove(olio);
+                sijainnit.remove(olio);
+            }
         }
     }
 
@@ -65,25 +76,25 @@ public final class Ruudukko {
      * @param olio Olio
      * @return Olion ruutu tai null, jos olio ei sijaitse missään ruudussa
      */
-    public Ruutu olionRuutu(PeliOlio olio) {
-        for (int i = 0; i < oliot.length; i++) {
-            for (int j = 0; j < oliot[i].length; j++) {
-                if (oliot[i][j].contains(olio)) {
-                    return new Ruutu(j, i);
-                }
+    public Ruutu olionRuutu(T olio) {
+        synchronized (lukko) {
+            if (sijainnit.containsKey(olio)) {
+                return sijainnit.get(olio);
             }
+            return null;
         }
-        return null;
     }
 
     /**
-     * Tarkistaa, onko ruudukon ruutu täysin tyhjä
+     * Tarkistaa, onko ruudukon ruutu täysin tyhjä olioista
      *
      * @param ruutu Ruutu
      * @return true jos tyhjä, false muutoin
      */
     public boolean onTyhja(Ruutu ruutu) {
-        return oliotRuudussa(ruutu).isEmpty();
+        synchronized (lukko) {
+            return oliotRuudussa(ruutu).isEmpty();
+        }
     }
 
     /**
@@ -93,8 +104,29 @@ public final class Ruudukko {
      * @param olio Olio
      * @return true jos on, false muutoin
      */
-    public boolean onOlioRuudussa(Ruutu ruutu, PeliOlio olio) {
-        return oliotRuudussa(ruutu).contains(olio);
+    public boolean onOlioRuudussa(Ruutu ruutu, T olio) {
+        synchronized (lukko) {
+            return oliotRuudussa(ruutu).contains(olio);
+        }
+    }
+
+    /**
+     * Tarkistaa onko annetuntyyppistä luokan oliota ruudussa
+     *
+     * @param tyyppi Olion tyyppi
+     * @param ruutu Ruutu
+     * @return true jos on, false muutoin
+     */
+    public boolean onTyyppiRuudussa(Class<? extends T> tyyppi, Ruutu ruutu) {
+        synchronized (lukko) {
+            Set<T> setti = oliotRuudussa(ruutu);
+            for (T olio : setti) {
+                if (tyyppi.equals(olio.getClass())) {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
     /**
@@ -103,8 +135,28 @@ public final class Ruudukko {
      * @param ruutu Ruutu
      * @return Lista
      */
-    public Set<PeliOlio> oliotRuudussa(Ruutu ruutu) {
-        return oliot[ruutu.getY()][ruutu.getX()];
+    public Set<T> oliotRuudussa(Ruutu ruutu) {
+        synchronized (lukko) {
+            int x = ruutu.getX();
+            int y = ruutu.getY();
+            if (x < 0 || y < 0 || y >= oliot.length || x >= oliot[y].length) {
+                return new HashSet<T>();
+            }
+            return oliot[ruutu.getY()][ruutu.getX()];
+        }
+    }
+
+    /**
+     * Siirtää olion annettuun ruutuun
+     *
+     * @param olio Siirrettävä olio
+     * @param ruutu Haluttu Ruutu
+     */
+    public void siirraOlio(T olio, Ruutu ruutu) {
+        synchronized (lukko) {
+            poistaOlio(olio);
+            lisaaOlio(olio, ruutu);
+        }
     }
 
     /**
@@ -112,7 +164,7 @@ public final class Ruudukko {
      *
      * @return Ruudukko
      */
-    public Set<PeliOlio>[][] getOlioListat() {
+    public Set<T>[][] getOlioJoukot() {
         return oliot;
     }
 
@@ -123,7 +175,7 @@ public final class Ruudukko {
      * @param y Y
      * @return Ruutu
      */
-    public static Ruutu xyRuuduksi(int x, int y) {
+    public Ruutu xyRuuduksi(int x, int y) {
         return new Ruutu(x / RUUDUN_KOKO, y / RUUDUN_KOKO);
     }
 
@@ -134,7 +186,7 @@ public final class Ruudukko {
      * @param y Y
      * @return true jos kohdistettu, false muutoin
      */
-    public static boolean onKohdistettu(int x, int y) {
+    public boolean onKohdistettu(int x, int y) {
         return x % RUUDUN_KOKO == 0 && y % RUUDUN_KOKO == 0;
     }
 }

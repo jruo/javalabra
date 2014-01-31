@@ -7,6 +7,7 @@ package palikkapeli.peli.logiikka.ohjaus;
  */
 public interface Liikkuva extends Ohjautuva {
 
+    // TODO: vain yksi liiku(Suunta suunta)
     /**
      * Liikkuu ylös
      */

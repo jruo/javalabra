@@ -3,6 +3,7 @@ package palikkapeli.peli.olio;
 import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.Looginen;
 import palikkapeli.peli.logiikka.Ruudukko;
+import palikkapeli.peli.logiikka.Ruutu;
 import palikkapeli.peli.logiikka.ohjaus.Ohjautuva;
 import palikkapeli.ui.grafiikka.Piirros;
 
@@ -15,6 +16,7 @@ public abstract class PeliOlio implements Looginen, Ohjautuva {
 
     protected int x, y;
     protected Peli peli;
+    protected Ruudukko ruudukko;
 
     /**
      * Luo PeliOlion annettuun Peliin ja koordinaatteihin
@@ -27,7 +29,8 @@ public abstract class PeliOlio implements Looginen, Ohjautuva {
         this.peli = peli;
         this.x = x;
         this.y = y;
-        this.peli.getRuudukko().lisaaOlio(this, Ruudukko.xyRuuduksi(x, y));
+        this.ruudukko = peli.getRuudukko();
+        this.ruudukko.lisaaOlio(this, sijaintiRuuduksi());
     }
 
     /**
@@ -74,6 +77,37 @@ public abstract class PeliOlio implements Looginen, Ohjautuva {
     public final void setY(int y) {
         this.y = y;
     }
+
+    /**
+     * Luo Ruutu-olion joka vastaa omia koordinaatteja
+     *
+     * @return Ruutu
+     */
+    public final Ruutu sijaintiRuuduksi() {
+        return ruudukko.xyRuuduksi(x, y);
+    }
+
+    /**
+     * Palauttaa Ruutu-olion, jossa tämä olio sijaitsee Ruudukon tiedossa
+     *
+     * @return
+     */
+    public final Ruutu omaRuutu() {
+        return ruudukko.olionRuutu(this);
+    }
+
+    @Override
+    public final void suoritaLogiikka() {
+        suoritaOmaLogiikka();
+        if (!omaRuutu().equals(sijaintiRuuduksi())) {
+            ruudukko.siirraOlio(this, sijaintiRuuduksi());
+        }
+    }
+
+    /**
+     * Metodi PeliOlion omalle logiikalle
+     */
+    public abstract void suoritaOmaLogiikka();
 
     /**
      * Metodi, jossa PeliOlio luo oman piirroksensa

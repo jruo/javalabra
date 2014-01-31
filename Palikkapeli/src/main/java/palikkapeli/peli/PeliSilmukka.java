@@ -2,6 +2,7 @@ package palikkapeli.peli;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 
 /**
@@ -180,7 +181,11 @@ public abstract class PeliSilmukka<T> implements Runnable {
         long alkuAika = System.nanoTime();
         while (true) {
             if (kaynnissa) {
-                paivita();
+                try {
+                    paivita();
+                } catch (ConcurrentModificationException e) {
+                    //päivitettävien listaa muokattiin kesken suorituksen...
+                }
             }
             long loppuAika = System.nanoTime();
             nuku(loppuAika - alkuAika);

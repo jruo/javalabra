@@ -39,7 +39,6 @@ public class Grafiikka extends PeliSilmukka<Piirros> {
     /**
      * Piirtää ikkunan taustan
      */
-    // TODO: piirrä jotain muuta kuin harmaa laatikko
     public void piirraTausta() {
         kuvanGrafiikka.drawImage(taustaKuva, null, 0, 0);
     }
