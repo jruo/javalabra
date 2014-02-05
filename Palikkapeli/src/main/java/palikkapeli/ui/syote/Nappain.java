@@ -15,7 +15,7 @@ public enum Nappain {
         this.nappainkoodi = nappainkoodi;
     }
 
-    public boolean onPainettu(Nappaimisto nappaimisto) {
+    public final boolean onPainettu(Nappaimisto nappaimisto) {
         return nappaimisto.onPainettu(nappainkoodi);
     }
 }

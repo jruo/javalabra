@@ -11,7 +11,8 @@ import org.junit.Test;
  */
 public class OhjainTest {
 
-    private OhjainTestiLuokka o1;
+    private LiikkuvaTestiLuokka o1;
+    private AktivoituvaTestiLuokka o2;
     private Ohjain ohjain;
     private Nappaimisto nap;
 
@@ -19,12 +20,13 @@ public class OhjainTest {
     public void setUp() {
         nap = new Nappaimisto();
         ohjain = new Ohjain(nap);
-        o1 = new OhjainTestiLuokka(10, 10);
-        ohjain.lisaa(o1);
+        o1 = new LiikkuvaTestiLuokka(10, 10);
+        o2 = new AktivoituvaTestiLuokka();
+        ohjain.lisaa(o1, o2);
     }
 
     @Test
-    public void kasitteleOhjattavaToimii() {
+    public void kasitteleOhjattavaToimiiLiikkuvalla() {
         assertEquals(10, o1.getX());
         assertEquals(10, o1.getY());
         asetaNappaimistonNappainJaSynkronoi(KeyEvent.VK_UP, true);
@@ -49,17 +51,29 @@ public class OhjainTest {
     }
 
     @Test
-    public void paivitysToimii() throws InterruptedException {
-//        ohjain.kaynnista();
-//        asetaNappaimistonNappain(KeyEvent.VK_RIGHT, true);
-//        Thread.sleep(50);
-//        assertTrue(o1.getX() > 11);
+    public void kasitteleOhjattavaToimiiAktivoituvalla() {
+        assertEquals(0, o2.getLaskuri());
+        asetaNappaimistonNappainJaSynkronoi(KeyEvent.VK_SPACE, true);
+        ohjain.kasitteleOhjattava(o2);
+        assertEquals(1, o2.getLaskuri());
+        asetaNappaimistonNappainJaSynkronoi(KeyEvent.VK_SPACE, true);
+        ohjain.kasitteleOhjattava(o2);
+        assertEquals(2, o2.getLaskuri());
     }
 
     @Test
-    public void nappainEnuminOnPainettuToimii() {
-        asetaNappaimistonNappainJaSynkronoi(KeyEvent.VK_UP, true);
-        assertEquals(true, Nappain.YLOS.onPainettu(nap));
+    public void kasitteleOhjattavatToimii() {
+        asetaNappaimistonNappain(KeyEvent.VK_UP, true);
+        asetaNappaimistonNappain(KeyEvent.VK_SPACE, true);
+        ohjain.kasitteleOhjattavat();
+        assertEquals(9, o1.getY());
+        assertEquals(1, o2.getLaskuri());
+        asetaNappaimistonNappain(KeyEvent.VK_UP, false);
+        asetaNappaimistonNappain(KeyEvent.VK_RIGHT, true);
+        ohjain.kasitteleOhjattavat();
+        assertEquals(9, o1.getY());
+        assertEquals(11, o1.getX());
+        assertEquals(2, o2.getLaskuri());
     }
 
     private void asetaNappaimistonNappainJaSynkronoi(int nappainkoodi, boolean painettu) {

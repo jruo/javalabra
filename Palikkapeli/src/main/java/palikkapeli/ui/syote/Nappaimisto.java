@@ -10,7 +10,7 @@ import java.util.Map;
  *
  * @author Janne Ruoho
  */
-public class Nappaimisto {
+public final class Nappaimisto {
 
     private final KeyListener kuuntelija;
     private final Map<Integer, Boolean> nappaintenTodellinenTila, nappaintenSynkronoituTila;

@@ -7,11 +7,11 @@ import palikkapeli.peli.logiikka.ohjaus.Liikkuva;
  *
  * @author Janne Ruoho
  */
-public class OhjainTestiLuokka implements Liikkuva {
+public class LiikkuvaTestiLuokka implements Liikkuva {
 
     private int x, y;
 
-    public OhjainTestiLuokka(int x, int y) {
+    public LiikkuvaTestiLuokka(int x, int y) {
         this.x = x;
         this.y = y;
     }

@@ -11,7 +11,7 @@ import palikkapeli.ui.PiirtoPaneeli;
  *
  * @author Janne Ruoho
  */
-public class Grafiikka extends PeliSilmukka<Piirros> {
+public final class Grafiikka extends PeliSilmukka<Piirros> {
 
     private final BufferedImage puskuriKuva;
     private final BufferedImage taustaKuva;

@@ -20,7 +20,7 @@ import palikkapeli.ui.grafiikka.Piirros;
  *
  * @author Janne Ruoho
  */
-public class Taso {
+public final class Taso {
 
     private static final Map<Integer, Class<? extends PeliOlio>> olionID = new HashMap<>();
     private final int[][] taso;

@@ -21,7 +21,7 @@ public enum Suunta {
      *
      * @return X
      */
-    public int getXSuunta() {
+    public final int getXSuunta() {
         return x;
     }
 
@@ -30,7 +30,7 @@ public enum Suunta {
      *
      * @return
      */
-    public int getYSuunta() {
+    public final int getYSuunta() {
         return y;
     }
 }

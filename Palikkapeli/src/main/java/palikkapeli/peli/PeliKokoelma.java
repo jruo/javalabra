@@ -23,7 +23,7 @@ public abstract class PeliKokoelma<T> {
      *
      * @param lisattava Lisättävä olio
      */
-    public void lisaa(T lisattava) {
+    public final void lisaa(T lisattava) {
         if (oliot.contains(lisattava)) {
             return;
         }
@@ -35,7 +35,7 @@ public abstract class PeliKokoelma<T> {
      *
      * @param lisattavat Lisättävät oliot
      */
-    public void lisaa(T... lisattavat) {
+    public final void lisaa(T... lisattavat) {
         for (T lisattava : lisattavat) {
             lisaa(lisattava);
         }
@@ -46,7 +46,7 @@ public abstract class PeliKokoelma<T> {
      *
      * @param lisattavat Lisättävät oliot
      */
-    public void lisaa(Collection<? extends T> lisattavat) {
+    public final void lisaa(Collection<? extends T> lisattavat) {
         for (T t : lisattavat) {
             lisaa(t);
         }
@@ -57,7 +57,7 @@ public abstract class PeliKokoelma<T> {
      *
      * @param poistettava Poistettava olio
      */
-    public void poista(T poistettava) {
+    public final void poista(T poistettava) {
         if (oliot.contains(poistettava)) {
             oliot.remove(poistettava);
         }
@@ -66,7 +66,7 @@ public abstract class PeliKokoelma<T> {
     /**
      * Tyhjentää kokoelman
      */
-    public void tyhjenna() {
+    public final void tyhjenna() {
         oliot.clear();
     }
 
@@ -75,7 +75,7 @@ public abstract class PeliKokoelma<T> {
      *
      * @return Lista
      */
-    public List<T> getOliot() {
+    public final List<T> getOliot() {
         return oliot;
     }
 

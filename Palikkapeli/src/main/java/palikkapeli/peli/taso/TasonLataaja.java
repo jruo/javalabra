@@ -12,7 +12,7 @@ import palikkapeli.peli.Peli;
  *
  * @author Janne Ruoho
  */
-public class TasonLataaja {
+public final class TasonLataaja {
 
     private final Peli peli;
 

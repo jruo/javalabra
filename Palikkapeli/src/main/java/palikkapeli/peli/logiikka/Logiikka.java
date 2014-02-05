@@ -8,7 +8,7 @@ import palikkapeli.ui.syote.Ohjain;
  *
  * @author Janne Ruoho
  */
-public class Logiikka extends PeliSilmukka<Looginen> {
+public final class Logiikka extends PeliSilmukka<Looginen> {
 
     private final Ohjain ohjain;
 

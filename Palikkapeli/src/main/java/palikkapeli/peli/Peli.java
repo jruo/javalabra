@@ -15,7 +15,7 @@ import palikkapeli.ui.syote.Ohjain;
  *
  * @author Janne Ruoho
  */
-public class Peli {
+public final class Peli {
 
     private final Oliot oliot;
     private final Ikkuna ikkuna;

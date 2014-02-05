@@ -8,7 +8,7 @@ import palikkapeli.peli.PeliKokoelma;
  *
  * @author Janne Ruoho
  */
-public class Oliot extends PeliKokoelma<PeliOlio> {
+public final class Oliot extends PeliKokoelma<PeliOlio> {
 
     /**
      * Alustaa kaikki kokoelman oliot

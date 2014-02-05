@@ -24,14 +24,14 @@ public abstract class PeliSilmukka<T> extends PeliKokoelma<T> implements Runnabl
     /**
      * Käynnistää silmukan
      */
-    public void kaynnista() {
+    public final void kaynnista() {
         kaynnissa = true;
     }
 
     /**
      * Pysäyttää silmukan
      */
-    public void pysayta() {
+    public final void pysayta() {
         kaynnissa = false;
     }
 
@@ -40,7 +40,7 @@ public abstract class PeliSilmukka<T> extends PeliKokoelma<T> implements Runnabl
      *
      * @return true jos käynnissä, muutoin false
      */
-    public boolean onKaynnissa() {
+    public final boolean onKaynnissa() {
         return kaynnissa;
     }
 
@@ -50,7 +50,7 @@ public abstract class PeliSilmukka<T> extends PeliKokoelma<T> implements Runnabl
      *
      * @param paivitykseenKulunutAika Päivitykseen kulunut aika nanosekunteina
      */
-    public void nuku(long paivitykseenKulunutAika) {
+    public final void nuku(long paivitykseenKulunutAika) {
         double nukuttavaAika = laskeNukuttavaAika(paivitykseenKulunutAika);
         try {
             Thread.sleep(
@@ -66,7 +66,7 @@ public abstract class PeliSilmukka<T> extends PeliKokoelma<T> implements Runnabl
      * @param paivitykseenKulunutAika Päivitykseen kulunut aika
      * @return Nukuttava aika nanosekunteina
      */
-    public double laskeNukuttavaAika(long paivitykseenKulunutAika) {
+    public final double laskeNukuttavaAika(long paivitykseenKulunutAika) {
         double paivityksenOptimiAika = (1D / PAIVITYKSIA_SEKUNNISSA) * 1000000000D;
         return paivityksenOptimiAika - paivitykseenKulunutAika;
     }
@@ -78,7 +78,7 @@ public abstract class PeliSilmukka<T> extends PeliKokoelma<T> implements Runnabl
      * @param nanoAika Aika nanosekunneissa
      * @return Aika millisekunneissa
      */
-    public long laskeMilliAika(double nanoAika) {
+    public final long laskeMilliAika(double nanoAika) {
         long milliAika = (long) nanoAika / 1000000;
         if (milliAika < 0) {
             return 0;
@@ -93,7 +93,7 @@ public abstract class PeliSilmukka<T> extends PeliKokoelma<T> implements Runnabl
      * @param nanoAika Aika nanosekunneissa
      * @return Ylimääräiset nanosekunnit
      */
-    public int laskeYlimaarainenNanoAika(double nanoAika) {
+    public final int laskeYlimaarainenNanoAika(double nanoAika) {
         //jaetaan, pyöristetään alaspäin ja kerrotaan uudelleen jotta saadaan pelkät millisekunnit
         long milliAika = (long) nanoAika / 1000000;
         long pyoristettyNanoAika = milliAika * 1000000;

@@ -28,7 +28,7 @@ public abstract class Alkeispiirros {
      * @param x Origon x-koordinaatti
      * @param y Origon y-koordinaatti
      */
-    public void asetaOrigo(int x, int y) {
+    public final void asetaOrigo(int x, int y) {
         this.x = x + kohdeX;
         this.y = y + kohdeY;
     }

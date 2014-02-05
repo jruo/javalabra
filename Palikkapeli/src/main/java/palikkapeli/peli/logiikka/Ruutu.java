@@ -20,7 +20,7 @@ public class Ruutu {
      *
      * @return x-sijainti
      */
-    public int getX() {
+    public final int getX() {
         return x;
     }
 
@@ -29,7 +29,7 @@ public class Ruutu {
      *
      * @return
      */
-    public int getY() {
+    public final int getY() {
         return y;
     }
 
@@ -39,7 +39,7 @@ public class Ruutu {
      * @param suunta Suunta
      * @return Viereinen ruutu
      */
-    public Ruutu viereinen(Suunta suunta) {
+    public final Ruutu viereinen(Suunta suunta) {
         return new Ruutu(x + suunta.getXSuunta(), y + suunta.getYSuunta());
     }
 
