@@ -56,7 +56,7 @@ public abstract class PeliOlio implements Looginen, Ohjautuva {
      *
      * @return Peli
      */
-    public Peli getPeli() {
+    public final Peli getPeli() {
         return peli;
     }
 
@@ -103,6 +103,12 @@ public abstract class PeliOlio implements Looginen, Ohjautuva {
             ruudukko.siirraOlio(this, sijaintiRuuduksi());
         }
     }
+
+    /**
+     * Metodi, joka kutsutaan vasta kun kaikki tason oliot on lisätty
+     * tarpeellisiin kokoelmiin yms
+     */
+    public abstract void alusta();
 
     /**
      * Metodi PeliOlion omalle logiikalle

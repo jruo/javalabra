@@ -1,6 +1,7 @@
 package palikkapeli.peli.logiikka;
 
 /**
+ * Suunta. Aika itsestäänselvää...
  *
  * @author Janne Ruoho
  */
@@ -15,10 +16,20 @@ public enum Suunta {
         this.y = y;
     }
 
+    /**
+     * Palauttaa suunnan suuntavektorin x-komponentin
+     *
+     * @return X
+     */
     public int getXSuunta() {
         return x;
     }
 
+    /**
+     * Palauttaa suunnan suuntavektorin y-komponentin
+     *
+     * @return
+     */
     public int getYSuunta() {
         return y;
     }

@@ -64,6 +64,9 @@ public class TasonLataaja {
         StringBuilder teksti = new StringBuilder();
         String rivi;
         while ((rivi = lukija.readLine()) != null) {
+            if (rivi.startsWith("#")) {
+                continue;
+            }
             teksti.append(rivi);
             teksti.append("\n");
         }

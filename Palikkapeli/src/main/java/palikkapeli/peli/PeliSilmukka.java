@@ -1,9 +1,6 @@
 package palikkapeli.peli;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.ConcurrentModificationException;
-import java.util.List;
 
 /**
  * Yläluokka pelin komponenteille, jotka tarvitsevat tasaisen silmukan
@@ -12,79 +9,16 @@ import java.util.List;
  * @author Janne Ruoho
  * @param <T> Silmukkaan talletettavien päivitettävien olioiden tyyppi
  */
-public abstract class PeliSilmukka<T> implements Runnable {
+public abstract class PeliSilmukka<T> extends PeliKokoelma<T> implements Runnable {
 
     public static final int PAIVITYKSIA_SEKUNNISSA = 60;
-    private final List<T> paivitettavat;
     private final Thread saie;
     private boolean kaynnissa;
 
     public PeliSilmukka() {
-        paivitettavat = new ArrayList<>();
         kaynnissa = false;
         saie = new Thread(this);
         saie.start();
-    }
-
-    /**
-     * Lisaa annetun olion päivitettävien joukkoon
-     *
-     * @param lisattava Lisättävä olio
-     */
-    public void lisaa(T lisattava) {
-        if (paivitettavat.contains(lisattava)) {
-            return;
-        }
-        paivitettavat.add(lisattava);
-    }
-
-    /**
-     * Lisää kaikki annetut oliot päivitettävien joukkoon
-     *
-     * @param lisattavat Lisättävät oliot
-     */
-    public void lisaa(T... lisattavat) {
-        for (T lisattava : lisattavat) {
-            lisaa(lisattava);
-        }
-    }
-
-    /**
-     * Lisää kaikki annetut oliot päivitettävien joukkoon
-     *
-     * @param lisattavat Lisättävät oliot
-     */
-    public void lisaa(Collection<? extends T> lisattavat) {
-        for (T t : lisattavat) {
-            lisaa(t);
-        }
-    }
-
-    /**
-     * Poistaa annetun olion päivitettävien joukkoon
-     *
-     * @param poistettava Poistettava olio
-     */
-    public void poista(T poistettava) {
-        if (paivitettavat.contains(poistettava)) {
-            paivitettavat.remove(poistettava);
-        }
-    }
-
-    /**
-     * Tyhjentää päivitettävien olioiden joukon
-     */
-    public void tyhjenna() {
-        paivitettavat.clear();
-    }
-
-    /**
-     * Palauttaa päivitettävien olioiden joukon
-     *
-     * @return Päivitettävät oliot
-     */
-    public List<T> getPaivitettavat() {
-        return paivitettavat;
     }
 
     /**
@@ -184,7 +118,7 @@ public abstract class PeliSilmukka<T> implements Runnable {
                 try {
                     paivita();
                 } catch (ConcurrentModificationException e) {
-                    //päivitettävien listaa muokattiin kesken suorituksen...
+                    //listoja muokattiin kesken suorituksen...
                 }
             }
             long loppuAika = System.nanoTime();

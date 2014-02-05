@@ -1,7 +1,8 @@
 package palikkapeli.ui.syote;
 
-import java.awt.event.KeyEvent;
-import palikkapeli.peli.PeliSilmukka;
+import palikkapeli.peli.PeliKokoelma;
+import palikkapeli.peli.logiikka.Suunta;
+import palikkapeli.peli.logiikka.ohjaus.Aktivoituva;
 import palikkapeli.peli.logiikka.ohjaus.Liikkuva;
 import palikkapeli.peli.logiikka.ohjaus.Ohjautuva;
 
@@ -10,7 +11,7 @@ import palikkapeli.peli.logiikka.ohjaus.Ohjautuva;
  *
  * @author Janne Ruoho
  */
-public class Ohjain extends PeliSilmukka<Ohjautuva> {
+public class Ohjain extends PeliKokoelma<Ohjautuva> {
 
     private final Nappaimisto nappaimisto;
 
@@ -23,42 +24,27 @@ public class Ohjain extends PeliSilmukka<Ohjautuva> {
             Liikkuva liikutettava = (Liikkuva) ohjattava;
 
             if (Nappain.YLOS.onPainettu(nappaimisto)) {
-                liikutettava.liikuYlos();
+                liikutettava.liiku(Suunta.YLOS);
+            } else if (Nappain.ALAS.onPainettu(nappaimisto)) {
+                liikutettava.liiku(Suunta.ALAS);
+            } else if (Nappain.VASEN.onPainettu(nappaimisto)) {
+                liikutettava.liiku(Suunta.VASEN);
+            } else if (Nappain.OIKEA.onPainettu(nappaimisto)) {
+                liikutettava.liiku(Suunta.OIKEA);
             }
-            if (Nappain.ALAS.onPainettu(nappaimisto)) {
-                liikutettava.liikuAlas();
-            }
-            if (Nappain.VASEN.onPainettu(nappaimisto)) {
-                liikutettava.liikuVasemmalle();
-            }
-            if (Nappain.OIKEA.onPainettu(nappaimisto)) {
-                liikutettava.liikuOikealle();
+        }
+        if (ohjattava instanceof Aktivoituva) {
+            Aktivoituva aktivoituva = (Aktivoituva) ohjattava;
+            if (aktivoituva.getAktivoivaNappain().onPainettu(nappaimisto)) {
+                aktivoituva.aktivoidu();
             }
         }
     }
 
-    @Override
-    public void paivita() {
+    public void kasitteleOhjattavat() {
         nappaimisto.synkronoi();
-        for (Ohjautuva ohjattava : getPaivitettavat()) {
+        for (Ohjautuva ohjattava : getOliot()) {
             kasitteleOhjattava(ohjattava);
-        }
-    }
-
-    public enum Nappain {
-
-        YLOS(KeyEvent.VK_UP),
-        ALAS(KeyEvent.VK_DOWN),
-        VASEN(KeyEvent.VK_LEFT),
-        OIKEA(KeyEvent.VK_RIGHT);
-        private final int nappainkoodi;
-
-        private Nappain(int nappainkoodi) {
-            this.nappainkoodi = nappainkoodi;
-        }
-
-        public boolean onPainettu(Nappaimisto nappaimisto) {
-            return nappaimisto.onPainettu(nappainkoodi);
         }
     }
 }

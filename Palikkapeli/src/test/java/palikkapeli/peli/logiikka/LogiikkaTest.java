@@ -3,6 +3,8 @@ package palikkapeli.peli.logiikka;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
+import palikkapeli.ui.syote.Nappaimisto;
+import palikkapeli.ui.syote.Ohjain;
 
 /**
  *
@@ -18,7 +20,7 @@ public class LogiikkaTest {
         l1 = new LooginenTestiLuokka();
         l2 = new LooginenTestiLuokka();
         l3 = new LooginenTestiLuokka();
-        logiikka = new Logiikka();
+        logiikka = new Logiikka(new Ohjain(new Nappaimisto()));
     }
 
     @Test

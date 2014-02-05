@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
+ * Testaa samalla PeliKokoelma-yläluokan metodit
  *
  * @author Janne Ruoho
  */
@@ -28,7 +29,7 @@ public class PeliSilmukkaTest {
 
     @Test
     public void getOliotToimii() {
-        assertTrue(silmukka.getPaivitettavat() != null);
+        assertTrue(silmukka.getOliot() != null);
     }
 
     @Test
@@ -157,6 +158,6 @@ public class PeliSilmukkaTest {
     }
 
     public void olioita(int oikeaMaara) {
-        assertEquals(oikeaMaara, silmukka.getPaivitettavat().size());
+        assertEquals(oikeaMaara, silmukka.getOliot().size());
     }
 }

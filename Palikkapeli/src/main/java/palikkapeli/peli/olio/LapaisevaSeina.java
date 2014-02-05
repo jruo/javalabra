@@ -4,18 +4,14 @@ import palikkapeli.peli.Peli;
 import palikkapeli.ui.grafiikka.Piirros;
 
 /**
+ * Seinä, jonka läpi pystyy mahdollisesti kulkemaan
  *
  * @author Janne Ruoho
  */
-public class PeliOlioTestiLuokka extends PeliOlio {
+public class LapaisevaSeina extends PeliOlio {
 
-    public PeliOlioTestiLuokka(Peli peli, int x, int y) {
+    public LapaisevaSeina(Peli peli, int x, int y) {
         super(peli, x, y);
-    }
-
-    @Override
-    public Piirros luoOmaPiirros() {
-        return new Piirros(this);
     }
 
     @Override
@@ -23,6 +19,12 @@ public class PeliOlioTestiLuokka extends PeliOlio {
     }
 
     @Override
+    public Piirros luoOmaPiirros() {
+        return null;
+    }
+
+    @Override
     public void alusta() {
     }
+
 }

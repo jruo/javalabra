@@ -16,7 +16,6 @@ public final class Ruudukko<T> {
 
     public static final int RUUDUN_KOKO = 20;
 
-    private final Object lukko = new Object();
     private final Set<T>[][] oliot;
     private final Map<T, Ruutu> sijainnit;
     private final int leveys, korkeus;
@@ -30,7 +29,7 @@ public final class Ruudukko<T> {
     }
 
     /**
-     * Alustaa ruudukon listat
+     * Alustaa ruudukon ruudut tyhjiksi
      */
     public void alustaRuudukko() {
         for (int i = 0; i < oliot.length; i++) {
@@ -47,11 +46,9 @@ public final class Ruudukko<T> {
      * @param ruutu Ruutu
      */
     public void lisaaOlio(T olio, Ruutu ruutu) {
-        synchronized (lukko) {
-            if (!sijainnit.containsKey(olio)) { //Lisätään vain, jos olio ei ole jo ruudukossa
-                oliotRuudussa(ruutu).add(olio);
-                sijainnit.put(olio, ruutu);
-            }
+        if (!sijainnit.containsKey(olio)) {
+            oliotRuudussa(ruutu).add(olio);
+            sijainnit.put(olio, ruutu);
         }
     }
 
@@ -61,12 +58,10 @@ public final class Ruudukko<T> {
      * @param olio Olio
      */
     public void poistaOlio(T olio) {
-        synchronized (lukko) {
-            if (sijainnit.containsKey(olio)) {
-                Ruutu ruutu = sijainnit.get(olio);
-                oliotRuudussa(ruutu).remove(olio);
-                sijainnit.remove(olio);
-            }
+        if (sijainnit.containsKey(olio)) {
+            Ruutu ruutu = sijainnit.get(olio);
+            oliotRuudussa(ruutu).remove(olio);
+            sijainnit.remove(olio);
         }
     }
 
@@ -77,12 +72,10 @@ public final class Ruudukko<T> {
      * @return Olion ruutu tai null, jos olio ei sijaitse missään ruudussa
      */
     public Ruutu olionRuutu(T olio) {
-        synchronized (lukko) {
-            if (sijainnit.containsKey(olio)) {
-                return sijainnit.get(olio);
-            }
-            return null;
+        if (sijainnit.containsKey(olio)) {
+            return sijainnit.get(olio);
         }
+        return null;
     }
 
     /**
@@ -92,9 +85,7 @@ public final class Ruudukko<T> {
      * @return true jos tyhjä, false muutoin
      */
     public boolean onTyhja(Ruutu ruutu) {
-        synchronized (lukko) {
-            return oliotRuudussa(ruutu).isEmpty();
-        }
+        return oliotRuudussa(ruutu).isEmpty();
     }
 
     /**
@@ -105,9 +96,7 @@ public final class Ruudukko<T> {
      * @return true jos on, false muutoin
      */
     public boolean onOlioRuudussa(Ruutu ruutu, T olio) {
-        synchronized (lukko) {
-            return oliotRuudussa(ruutu).contains(olio);
-        }
+        return oliotRuudussa(ruutu).contains(olio);
     }
 
     /**
@@ -118,15 +107,13 @@ public final class Ruudukko<T> {
      * @return true jos on, false muutoin
      */
     public boolean onTyyppiRuudussa(Class<? extends T> tyyppi, Ruutu ruutu) {
-        synchronized (lukko) {
-            Set<T> setti = oliotRuudussa(ruutu);
-            for (T olio : setti) {
-                if (tyyppi.equals(olio.getClass())) {
-                    return true;
-                }
+        Set<T> setti = oliotRuudussa(ruutu);
+        for (T olio : setti) {
+            if (tyyppi.isAssignableFrom(olio.getClass())) {
+                return true;
             }
-            return false;
         }
+        return false;
     }
 
     /**
@@ -136,14 +123,12 @@ public final class Ruudukko<T> {
      * @return Lista
      */
     public Set<T> oliotRuudussa(Ruutu ruutu) {
-        synchronized (lukko) {
-            int x = ruutu.getX();
-            int y = ruutu.getY();
-            if (x < 0 || y < 0 || y >= oliot.length || x >= oliot[y].length) {
-                return new HashSet<T>();
-            }
-            return oliot[ruutu.getY()][ruutu.getX()];
+        int x = ruutu.getX();
+        int y = ruutu.getY();
+        if (x < 0 || y < 0 || y >= oliot.length || x >= oliot[y].length) {
+            return new HashSet<>();
         }
+        return oliot[ruutu.getY()][ruutu.getX()];
     }
 
     /**
@@ -153,10 +138,8 @@ public final class Ruudukko<T> {
      * @param ruutu Haluttu Ruutu
      */
     public void siirraOlio(T olio, Ruutu ruutu) {
-        synchronized (lukko) {
-            poistaOlio(olio);
-            lisaaOlio(olio, ruutu);
-        }
+        poistaOlio(olio);
+        lisaaOlio(olio, ruutu);
     }
 
     /**

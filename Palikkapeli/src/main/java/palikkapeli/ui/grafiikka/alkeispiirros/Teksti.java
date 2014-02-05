@@ -11,7 +11,7 @@ import java.awt.Graphics2D;
 public class Teksti extends Alkeispiirros implements Muokattava<String> {
 
     private String teksti;
-    private Color vari;
+    private final Color vari;
 
     public Teksti(String teksti, Color vari, int x, int y) {
         super(x, y);

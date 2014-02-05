@@ -15,6 +15,9 @@ public class TasonVaihtaja {
         this.peli = peli;
     }
 
+    /**
+     * Siirtyy pelin seuraavaan tasoon
+     */
     public void seuraavaTaso() {
         TasonLataaja lataaja = new TasonLataaja(peli);
         Taso taso = lataaja.lataaTaso("/tasot/taso1");

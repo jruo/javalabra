@@ -1,6 +1,7 @@
 package palikkapeli.peli.logiikka;
 
 /**
+ * Eddustaa Ruudukon ruutua
  *
  * @author Janne Ruoho
  */
@@ -13,14 +14,31 @@ public class Ruutu {
         this.y = y;
     }
 
+    /**
+     * Palauttaa ruudun x-sijainnin ruudukossa (ei todellista koordinaattia
+     * ikkunassa)
+     *
+     * @return x-sijainti
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     * Palauttaa ruudun y-sijainnin ruudukossa
+     *
+     * @return
+     */
     public int getY() {
         return y;
     }
 
+    /**
+     * Palauttaa ruudun viereisen ruudun annetussa suunnassa
+     *
+     * @param suunta Suunta
+     * @return Viereinen ruutu
+     */
     public Ruutu viereinen(Suunta suunta) {
         return new Ruutu(x + suunta.getXSuunta(), y + suunta.getYSuunta());
     }

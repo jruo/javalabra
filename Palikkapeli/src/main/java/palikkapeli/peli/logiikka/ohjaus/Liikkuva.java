@@ -1,5 +1,7 @@
 package palikkapeli.peli.logiikka.ohjaus;
 
+import palikkapeli.peli.logiikka.Suunta;
+
 /**
  * Rajapinta liikutettaville olioille
  *
@@ -7,24 +9,10 @@ package palikkapeli.peli.logiikka.ohjaus;
  */
 public interface Liikkuva extends Ohjautuva {
 
-    // TODO: vain yksi liiku(Suunta suunta)
     /**
-     * Liikkuu ylös
+     * Liikkuu annettuun suuntaan
+     *
+     * @param suunta Suunta
      */
-    public void liikuYlos();
-
-    /**
-     * Liikkuu alas
-     */
-    public void liikuAlas();
-
-    /**
-     * Liikkuu vasemmalle
-     */
-    public void liikuVasemmalle();
-
-    /**
-     * Liikkuu oikealle
-     */
-    public void liikuOikealle();
+    public void liiku(Suunta suunta);
 }

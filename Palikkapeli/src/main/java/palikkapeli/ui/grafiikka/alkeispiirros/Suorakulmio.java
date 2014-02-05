@@ -10,9 +10,9 @@ import java.awt.Graphics2D;
  */
 public class Suorakulmio extends Alkeispiirros {
 
-    private int leveys, korkeus;
-    private Color vari;
-    private boolean taytetty;
+    private final int leveys, korkeus;
+    private final Color vari;
+    private final boolean taytetty;
 
     public Suorakulmio(int x, int y, int leveys, int korkeus, Color vari, boolean taytetty) {
         super(x, y);

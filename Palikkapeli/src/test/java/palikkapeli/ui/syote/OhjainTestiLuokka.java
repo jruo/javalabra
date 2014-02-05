@@ -1,5 +1,6 @@
 package palikkapeli.ui.syote;
 
+import palikkapeli.peli.logiikka.Suunta;
 import palikkapeli.peli.logiikka.ohjaus.Liikkuva;
 
 /**
@@ -24,23 +25,9 @@ public class OhjainTestiLuokka implements Liikkuva {
     }
 
     @Override
-    public void liikuYlos() {
-        y--;
-    }
-
-    @Override
-    public void liikuAlas() {
-        y++;
-    }
-
-    @Override
-    public void liikuVasemmalle() {
-        x--;
-    }
-
-    @Override
-    public void liikuOikealle() {
-        x++;
+    public void liiku(Suunta suunta) {
+        x += suunta.getXSuunta();
+        y += suunta.getYSuunta();
     }
 
 }

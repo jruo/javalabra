@@ -2,6 +2,7 @@ package palikkapeli.peli;
 
 import palikkapeli.peli.logiikka.Logiikka;
 import palikkapeli.peli.logiikka.Ruudukko;
+import palikkapeli.peli.olio.Oliot;
 import palikkapeli.peli.olio.PeliOlio;
 import palikkapeli.peli.taso.TasonVaihtaja;
 import palikkapeli.ui.Ikkuna;
@@ -16,6 +17,7 @@ import palikkapeli.ui.syote.Ohjain;
  */
 public class Peli {
 
+    private final Oliot oliot;
     private final Ikkuna ikkuna;
     private final Ohjain ohjain;
     private final Logiikka logiikka;
@@ -31,15 +33,24 @@ public class Peli {
         nappaimisto = new Nappaimisto();
         ohjain = new Ohjain(nappaimisto);
         ruudukko = new Ruudukko<>();
-        logiikka = new Logiikka();
+        logiikka = new Logiikka(ohjain);
         grafiikka = new Grafiikka(ikkuna.getPiirtoPaneeli());
         tasonVaihtaja = new TasonVaihtaja(this);
+        oliot = new Oliot();
 
         ikkuna.lisaaNapaimistonKuuntelija(nappaimisto.getKuuntelija());
 
-        ohjain.kaynnista();
         logiikka.kaynnista();
         grafiikka.kaynnista();
+    }
+
+    /**
+     * Palauttaa oliot-kokoelman
+     *
+     * @return Oliot
+     */
+    public Oliot getOliot() {
+        return oliot;
     }
 
     /**

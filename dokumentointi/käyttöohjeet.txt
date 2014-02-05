@@ -1,0 +1,5 @@
+Nuolinäppäimet:
+	Liikuta valittua hahmoa
+
+Välilyönti:
+	Vaihda valittua hahmoa

@@ -56,7 +56,6 @@ public class PeliTest {
 
     @Test
     public void silmukatKaynnistyvat() {
-        assertEquals(true, peli.getOhjain().onKaynnissa());
         assertEquals(true, peli.getLogiikka().onKaynnissa());
         assertEquals(true, peli.getGrafiikka().onKaynnissa());
     }
