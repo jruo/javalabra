@@ -19,6 +19,11 @@ public final class Ohjain extends PeliKokoelma<Ohjautuva> {
         this.nappaimisto = nappaimisto;
     }
 
+    /**
+     * Käsittelee annetun Ohjautuva-olion
+     *
+     * @param ohjattava Ohjautuva
+     */
     public void kasitteleOhjattava(Ohjautuva ohjattava) {
         if (ohjattava instanceof Liikkuva) {
             kasitteleLiikkuva((Liikkuva) ohjattava);
@@ -28,6 +33,11 @@ public final class Ohjain extends PeliKokoelma<Ohjautuva> {
         }
     }
 
+    /**
+     * Käsittelee annetun Liikkuva-olion
+     *
+     * @param liikutettava Liikkuva
+     */
     public void kasitteleLiikkuva(Liikkuva liikutettava) {
         if (Nappain.YLOS.onPainettu(nappaimisto)) {
             liikutettava.liiku(Suunta.YLOS);
@@ -40,12 +50,20 @@ public final class Ohjain extends PeliKokoelma<Ohjautuva> {
         }
     }
 
+    /**
+     * Käsittelee annetun aktivoituva-olion
+     *
+     * @param aktivoituva Aktivoituva
+     */
     public void kasitteleAktivoituva(Aktivoituva aktivoituva) {
         if (aktivoituva.getAktivoivaNappain().onPainettu(nappaimisto)) {
             aktivoituva.aktivoidu();
         }
     }
 
+    /**
+     * Käsittelee kaikki kokoelman oliot
+     */
     public void kasitteleOhjattavat() {
         nappaimisto.synkronoi();
         for (Ohjautuva ohjattava : getOliot()) {

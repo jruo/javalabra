@@ -2,6 +2,11 @@ package palikkapeli.ui.syote;
 
 import java.awt.event.KeyEvent;
 
+/**
+ * Näppäimistön näppäin
+ *
+ * @author Janne Ruoho
+ */
 public enum Nappain {
 
     YLOS(KeyEvent.VK_UP),
@@ -15,6 +20,12 @@ public enum Nappain {
         this.nappainkoodi = nappainkoodi;
     }
 
+    /**
+     * Tarkistaa onko näppäin painettu
+     *
+     * @param nappaimisto Näppäimistö
+     * @return true jos on, false muutoin
+     */
     public final boolean onPainettu(Nappaimisto nappaimisto) {
         return nappaimisto.onPainettu(nappainkoodi);
     }
