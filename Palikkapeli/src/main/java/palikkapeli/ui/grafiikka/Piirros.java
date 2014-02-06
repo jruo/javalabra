@@ -9,6 +9,7 @@ import palikkapeli.ui.grafiikka.alkeispiirros.Alkeispiirros;
 import palikkapeli.ui.grafiikka.alkeispiirros.Kuva;
 import palikkapeli.ui.grafiikka.alkeispiirros.Suorakulmio;
 import palikkapeli.ui.grafiikka.alkeispiirros.Teksti;
+import palikkapeli.ui.grafiikka.alkeispiirros.Viiva;
 
 /**
  * Piirros (kuva, teksti, suorakulmio yms), joka tarjoaa graafisen esityksen
@@ -91,5 +92,21 @@ public final class Piirros {
         Suorakulmio suorakulmio = new Suorakulmio(xd, yd, leveys, korkeus, vari, taytetty);
         osat.add(suorakulmio);
         return suorakulmio;
+    }
+
+    /**
+     * Lisää viivan piirrokseen
+     *
+     * @param xd1 Viivan ensimmäinen x-koordinaatti suhteessa origoon
+     * @param yd1 Viivan ensimmäinen y-koordinaatti suhteessa origoon
+     * @param xd2 Viivan toinen x-koordinaatti suhteessa origoon
+     * @param yd2 Viivan toinen y-koordinaatti suhteessa origoon
+     * @param vari Viivan väri
+     * @return Lisätty viiva
+     */
+    public Viiva lisaaViiva(int xd1, int yd1, int xd2, int yd2, Color vari) {
+        Viiva viiva = new Viiva(xd1, yd1, xd2, yd2, vari);
+        osat.add(viiva);
+        return viiva;
     }
 }

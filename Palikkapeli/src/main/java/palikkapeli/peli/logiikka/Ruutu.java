@@ -1,7 +1,7 @@
 package palikkapeli.peli.logiikka;
 
 /**
- * Eddustaa Ruudukon ruutua
+ * Edustaa Ruudukon ruutua
  *
  * @author Janne Ruoho
  */

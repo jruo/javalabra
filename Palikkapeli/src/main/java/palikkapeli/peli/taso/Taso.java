@@ -42,12 +42,7 @@ public final class Taso {
      * Luo tason oliot
      */
     public void rakennaTaso() {
-        //Tyhjennetään peli edellisen tason jäljiltä
-        peli.getLogiikka().tyhjenna();
-        peli.getGrafiikka().tyhjenna();
-        peli.getOhjain().tyhjenna();
-        peli.getOliot().tyhjenna();
-        peli.getRuudukko().alustaRuudukko();
+        tyhjennaVanhaTaso();
 
         //Luodaan oliot niitä vastaavista id:istä
         List<PeliOlio> oliot = new ArrayList<>();
@@ -74,7 +69,27 @@ public final class Taso {
             }
         }
 
-        //Lisätään kaikki luodut oliot peliin
+        lisaaOliotJaPiirrokset(oliot, piirrokset);
+    }
+
+    /**
+     * Tyhjentää pelin nykyisen tason
+     */
+    public void tyhjennaVanhaTaso() {
+        peli.getLogiikka().tyhjenna();
+        peli.getGrafiikka().tyhjenna();
+        peli.getOhjain().tyhjenna();
+        peli.getOliot().tyhjenna();
+        peli.getRuudukko().alustaRuudukko();
+    }
+
+    /**
+     * Lisää peliin annetut oliot ja piirrokset
+     *
+     * @param oliot Lista lisättävistä olioista
+     * @param piirrokset Lista lisättävistä piirroksista
+     */
+    public void lisaaOliotJaPiirrokset(List<PeliOlio> oliot, List<Piirros> piirrokset) {
         peli.getLogiikka().lisaa(oliot);
         peli.getGrafiikka().lisaa(piirrokset);
         peli.getOhjain().lisaa(oliot);

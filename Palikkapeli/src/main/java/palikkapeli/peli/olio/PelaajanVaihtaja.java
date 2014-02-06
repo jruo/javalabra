@@ -51,7 +51,14 @@ public class PelaajanVaihtaja extends PeliOlio implements Aktivoituva {
     public Piirros luoOmaPiirros() {
         //Valintaboxi, joka seuraa valittuna olevaa pelaajaa
         Piirros piirros = new Piirros(this);
-        piirros.lisaaSuorakulmio(-2, -2, 23, 23, Color.black, false);
+        piirros.lisaaViiva(-2, -2, 1, -2, Color.darkGray);
+        piirros.lisaaViiva(-2, -2, -2, 1, Color.darkGray);
+        piirros.lisaaViiva(-2, 21, -2, 18, Color.darkGray);
+        piirros.lisaaViiva(-2, 21, 1, 21, Color.darkGray);
+        piirros.lisaaViiva(21, 21, 21, 18, Color.darkGray);
+        piirros.lisaaViiva(21, 21, 18, 21, Color.darkGray);
+        piirros.lisaaViiva(21, -2, 21, 1, Color.darkGray);
+        piirros.lisaaViiva(21, -2, 18, -2, Color.darkGray);
         return piirros;
     }
 

@@ -45,3 +45,15 @@ Ajankäytön kohde: Tasojen lataus- ja luontikoodia
 [30.01.]
 Käytetty aika: ~6h
 Ajankäytön kohde: Ruudukkosysteemi logiikkaan, testausta, uusi sekava luokkakaavio ja muuta pientä
+
+[31.01.]
+Käytetty aika: ~3h
+Ajankäytön kohde: Ruudukkosysteemin kehitystä yms
+
+[01.02.]
+Käytetty aika: ~3h
+Ajankäytön kohde: Ohjain-säikeen poistaminen ja liittäminen Logiikkaan, pelisilmukan refaktorointi kahdeksi luokaksi
+
+[05.02.]
+Käytetty aika: ~6h
+Ajankäytön kohde: Värisysteemi, pelaajienvaihtoa ja kaikenlaista sälää
