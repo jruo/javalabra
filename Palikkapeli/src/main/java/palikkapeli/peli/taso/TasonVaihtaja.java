@@ -12,7 +12,6 @@ import palikkapeli.peli.Peli;
 public final class TasonVaihtaja {
 
     private static final List<String> tasot = new ArrayList<>();
-    private final Peli peli;
     private final TasonLataaja lataaja;
     private int nykyinenTaso;
 
@@ -22,9 +21,8 @@ public final class TasonVaihtaja {
         tasot.add("/tasot/taso3");
     }
 
-    public TasonVaihtaja(Peli peli) {
-        this.peli = peli;
-        lataaja = new TasonLataaja(peli);
+    public TasonVaihtaja() {
+        lataaja = new TasonLataaja();
         nykyinenTaso = -1;
     }
 
@@ -46,9 +44,9 @@ public final class TasonVaihtaja {
     public void resetoiNykyinenTaso() {
         String tiedostonimi = tasot.get(nykyinenTaso);
 
-        peli.getGrafiikka().pysayta(); // Estetään ruudun välkkyminen resetoinnin aikana
+        Peli.INSTANSSI.getGrafiikka().pysayta(); // Estetään ruudun välkkyminen resetoinnin aikana
         luoTaso(tiedostonimi);
-        peli.getGrafiikka().kaynnista();
+        Peli.INSTANSSI.getGrafiikka().kaynnista();
     }
 
     /**

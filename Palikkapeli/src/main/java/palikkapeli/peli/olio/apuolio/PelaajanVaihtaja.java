@@ -3,7 +3,6 @@ package palikkapeli.peli.olio.apuolio;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
-import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.ohjaus.Aktivoitava;
 import palikkapeli.peli.olio.PeliOlio;
 import palikkapeli.peli.olio.liikkuva.Pelaaja;
@@ -22,8 +21,8 @@ public class PelaajanVaihtaja extends PeliOlio implements Aktivoitava {
     private Pelaaja nykyinenOhjattava;
     private long viimeksiVaihdettu;
 
-    public PelaajanVaihtaja(Peli peli, int x, int y) {
-        super(peli, x, y);
+    public PelaajanVaihtaja(int x, int y) {
+        super(x, y);
         pelaajat = new ArrayList<>();
         viimeksiVaihdettu = 0;
     }

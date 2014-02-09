@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
+import palikkapeli.peli.Peli;
 
 /**
  * Pelin ikkuna
@@ -14,9 +15,9 @@ public class Ikkuna extends JFrame {
 
     private PiirtoPaneeli piirtoPaneeli;
 
-    public Ikkuna(int leveys, int korkeus) {
+    public Ikkuna() {
         setResizable(false);
-        luoPaneeli(leveys, korkeus);
+        luoPaneeli(Peli.IKKUNAN_LEVEYS, Peli.IKKUNAN_KORKEUS);
         setLocationRelativeTo(null);
         setVisible(true);
         setTitle("Palikkapeli");

@@ -1,6 +1,5 @@
 package palikkapeli.peli.olio.liikkumaton;
 
-import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.Vari;
 import palikkapeli.ui.grafiikka.Piirros;
 
@@ -10,8 +9,8 @@ import palikkapeli.ui.grafiikka.Piirros;
  */
 public class PunainenLapaisevaSeina extends LapaisevaSeina {
 
-    public PunainenLapaisevaSeina(Peli peli, int x, int y) {
-        super(peli, x, y);
+    public PunainenLapaisevaSeina(int x, int y) {
+        super(x, y);
     }
 
     @Override

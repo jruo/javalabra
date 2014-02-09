@@ -1,6 +1,5 @@
 package palikkapeli.peli.olio.liikkuva;
 
-import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.Ruutu;
 import palikkapeli.peli.logiikka.Suunta;
 import palikkapeli.peli.logiikka.ohjaus.Liikutettava;
@@ -16,8 +15,8 @@ public abstract class Pelaaja extends LiikkuvaPeliOlio implements Liikutettava {
     private boolean ohjattavissa;
     private Suunta liikkumissuunta;
 
-    public Pelaaja(Peli peli, int x, int y) {
-        super(peli, x, y);
+    public Pelaaja(int x, int y) {
+        super(x, y);
         ohjattavissa = false;
     }
 

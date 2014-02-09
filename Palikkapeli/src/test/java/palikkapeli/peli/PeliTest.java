@@ -15,7 +15,7 @@ public class PeliTest {
 
     @Before
     public void setUp() {
-        peli = new Peli();
+        peli = Peli.INSTANSSI;
     }
 
     @Test

@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
-import palikkapeli.peli.Peli;
 
 /**
  *
@@ -16,8 +15,8 @@ public class PeliOlioTest {
 
     @Before
     public void setUp() {
-        o1 = new PeliOlioTestiLuokka(new Peli(), 0, 0);
-        o2 = new PeliOlioTestiLuokka(new Peli(), 10, 10);
+        o1 = new PeliOlioTestiLuokka(0, 0);
+        o2 = new PeliOlioTestiLuokka(10, 10);
     }
 
     @Test

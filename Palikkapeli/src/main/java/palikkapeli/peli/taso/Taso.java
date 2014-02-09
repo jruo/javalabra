@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Map;
 import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.Ruudukko;
-import palikkapeli.peli.olio.apuolio.PelaajanVaihtaja;
 import palikkapeli.peli.olio.PeliOlio;
+import palikkapeli.peli.olio.apuolio.PelaajanVaihtaja;
 import palikkapeli.peli.olio.apuolio.TasonResetoija;
 import palikkapeli.peli.olio.liikkumaton.KiinteaSeina;
 import palikkapeli.peli.olio.liikkumaton.PunainenLapaisevaSeina;
@@ -29,7 +29,6 @@ public final class Taso {
 
     private static final Map<Integer, Class<? extends PeliOlio>> olionID = new HashMap<>();
     private final int[][] taso;
-    private final Peli peli;
 
     static {
         olionID.put(1, KiinteaSeina.class);
@@ -44,8 +43,7 @@ public final class Taso {
         olionID.put(101, TasonResetoija.class);
     }
 
-    public Taso(Peli peli, int[][] taso) {
-        this.peli = peli;
+    public Taso(int[][] taso) {
         this.taso = taso;
     }
 
@@ -87,11 +85,11 @@ public final class Taso {
      * Tyhjentää pelin nykyisen tason
      */
     public void tyhjennaVanhaTaso() {
-        peli.getLogiikka().tyhjenna();
-        peli.getGrafiikka().tyhjenna();
-        peli.getOhjain().tyhjenna();
-        peli.getOliot().tyhjenna();
-        peli.getRuudukko().alustaRuudukko();
+        Peli.INSTANSSI.getLogiikka().tyhjenna();
+        Peli.INSTANSSI.getGrafiikka().tyhjenna();
+        Peli.INSTANSSI.getOhjain().tyhjenna();
+        Peli.INSTANSSI.getOliot().tyhjenna();
+        Peli.INSTANSSI.getRuudukko().alustaRuudukko();
     }
 
     /**
@@ -101,12 +99,12 @@ public final class Taso {
      * @param piirrokset Lista lisättävistä piirroksista
      */
     public void lisaaOliotJaPiirrokset(List<PeliOlio> oliot, List<Piirros> piirrokset) {
-        peli.getLogiikka().lisaa(oliot);
-        peli.getGrafiikka().lisaa(piirrokset);
-        peli.getGrafiikka().jarjestaPiirtosyvyys();
-        peli.getOhjain().lisaa(oliot);
-        peli.getOliot().lisaa(oliot);
-        peli.getOliot().alustaOliot();
+        Peli.INSTANSSI.getLogiikka().lisaa(oliot);
+        Peli.INSTANSSI.getGrafiikka().lisaa(piirrokset);
+        Peli.INSTANSSI.getGrafiikka().jarjestaPiirtosyvyys();
+        Peli.INSTANSSI.getOhjain().lisaa(oliot);
+        Peli.INSTANSSI.getOliot().lisaa(oliot);
+        Peli.INSTANSSI.getOliot().alustaOliot();
     }
 
     /**
@@ -133,7 +131,7 @@ public final class Taso {
     public PeliOlio luoOlio(Class<? extends PeliOlio> luokka, int x, int y) {
         try {
             Constructor<?> konstruktori = luokka.getConstructors()[0];
-            PeliOlio olio = (PeliOlio) konstruktori.newInstance(peli, x, y);
+            PeliOlio olio = (PeliOlio) konstruktori.newInstance(x, y);
             return olio;
         } catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
             System.out.println("Virhe luotaessa oliota luokasta " + luokka.getName());

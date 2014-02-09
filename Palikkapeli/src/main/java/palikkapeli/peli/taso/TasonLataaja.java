@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-import palikkapeli.peli.Peli;
 
 /**
  * Lataa tasot tiedostosta
@@ -13,12 +12,6 @@ import palikkapeli.peli.Peli;
  * @author Janne Ruoho
  */
 public final class TasonLataaja {
-
-    private final Peli peli;
-
-    public TasonLataaja(Peli peli) {
-        this.peli = peli;
-    }
 
     /**
      * Lataa tason annetusta tiedostosta
@@ -31,7 +24,7 @@ public final class TasonLataaja {
             BufferedReader lukija = luoLukija(tiedostonimi);
             String tiedostonSisalto = lueTiedosto(lukija);
             int[][] tasonIDt = luoTaulukkoMerkkijonosta(tiedostonSisalto);
-            return new Taso(peli, tasonIDt);
+            return new Taso(tasonIDt);
         } catch (NullPointerException | NumberFormatException | IOException ex) {
             System.out.println("Virhe yritettäessä ladata tasoa " + tiedostonimi);
             System.exit(1);

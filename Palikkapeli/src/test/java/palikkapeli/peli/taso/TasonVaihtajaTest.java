@@ -17,8 +17,8 @@ public class TasonVaihtajaTest {
 
     @Before
     public void setUp() {
-        peli = new Peli();
-        vaihtaja = new TasonVaihtaja(peli);
+        peli = Peli.INSTANSSI;
+        vaihtaja = new TasonVaihtaja();
         vaihtaja.getTasot().clear();
         vaihtaja.getTasot().add("/tasot/taso");
         vaihtaja.getTasot().add("/tasot/taso2");

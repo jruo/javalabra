@@ -1,6 +1,5 @@
 package palikkapeli.peli.olio.liikkuva;
 
-import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.Ruutu;
 import palikkapeli.peli.logiikka.Suunta;
 import palikkapeli.peli.logiikka.Varillinen;
@@ -19,8 +18,8 @@ public abstract class LiikkuvaPeliOlio extends PeliOlio implements Varillinen {
     private boolean liikkumassa;
     private Suunta liikkumissuunta;
 
-    public LiikkuvaPeliOlio(Peli peli, int x, int y) {
-        super(peli, x, y);
+    public LiikkuvaPeliOlio(int x, int y) {
+        super(x, y);
     }
 
     /**

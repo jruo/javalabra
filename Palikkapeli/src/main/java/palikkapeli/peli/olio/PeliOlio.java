@@ -27,13 +27,14 @@ public abstract class PeliOlio implements Looginen, Ohjattava {
      * @param x X-koordinaatti
      * @param y Y-koordinaatti
      */
-    public PeliOlio(Peli peli, int x, int y) {
-        this.peli = peli;
+    public PeliOlio(int x, int y) {
         this.x = x;
         this.y = y;
-        this.oliot = peli.getOliot();
-        this.ruudukko = peli.getRuudukko();
-        this.ruudukko.lisaaOlio(this, sijaintiRuuduksi());
+
+        peli = Peli.INSTANSSI;
+        oliot = peli.getOliot();
+        ruudukko = peli.getRuudukko();
+        ruudukko.lisaaOlio(this, sijaintiRuuduksi());
     }
 
     /**

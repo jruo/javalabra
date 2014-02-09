@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import palikkapeli.peli.Peli;
 
 /**
  *
@@ -43,7 +42,7 @@ public class TasonLataajaTest {
 
     @Before
     public void setUp() {
-        lataaja = new TasonLataaja(new Peli());
+        lataaja = new TasonLataaja();
     }
 
     @Test

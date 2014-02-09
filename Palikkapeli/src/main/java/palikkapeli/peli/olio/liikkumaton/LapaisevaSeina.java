@@ -1,6 +1,5 @@
 package palikkapeli.peli.olio.liikkumaton;
 
-import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.Varillinen;
 import palikkapeli.peli.olio.PeliOlio;
 
@@ -11,7 +10,7 @@ import palikkapeli.peli.olio.PeliOlio;
  */
 public abstract class LapaisevaSeina extends PeliOlio implements Varillinen {
 
-    public LapaisevaSeina(Peli peli, int x, int y) {
-        super(peli, x, y);
+    public LapaisevaSeina(int x, int y) {
+        super(x, y);
     }
 }

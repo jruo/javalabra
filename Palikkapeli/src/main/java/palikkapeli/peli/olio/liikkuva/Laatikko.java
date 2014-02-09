@@ -1,6 +1,5 @@
 package palikkapeli.peli.olio.liikkuva;
 
-import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.Ruutu;
 
 /**
@@ -9,8 +8,8 @@ import palikkapeli.peli.logiikka.Ruutu;
  */
 public abstract class Laatikko extends LiikkuvaPeliOlio {
 
-    public Laatikko(Peli peli, int x, int y) {
-        super(peli, x, y);
+    public Laatikko(int x, int y) {
+        super(x, y);
     }
 
     @Override

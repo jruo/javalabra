@@ -1,6 +1,5 @@
 package palikkapeli.peli.olio.liikkuva;
 
-import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.Vari;
 import palikkapeli.ui.grafiikka.Piirros;
 
@@ -11,8 +10,8 @@ import palikkapeli.ui.grafiikka.Piirros;
  */
 public class SininenPelaaja extends Pelaaja {
 
-    public SininenPelaaja(Peli peli, int x, int y) {
-        super(peli, x, y);
+    public SininenPelaaja(int x, int y) {
+        super(x, y);
     }
 
     @Override

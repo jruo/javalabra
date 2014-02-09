@@ -1,6 +1,5 @@
 package palikkapeli.peli.olio.apuolio;
 
-import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.ohjaus.Aktivoitava;
 import palikkapeli.peli.olio.PeliOlio;
 import palikkapeli.ui.syote.Nappain;
@@ -11,8 +10,8 @@ import palikkapeli.ui.syote.Nappain;
  */
 public class TasonResetoija extends PeliOlio implements Aktivoitava {
 
-    public TasonResetoija(Peli peli, int x, int y) {
-        super(peli, x, y);
+    public TasonResetoija(int x, int y) {
+        super(x, y);
     }
 
     @Override

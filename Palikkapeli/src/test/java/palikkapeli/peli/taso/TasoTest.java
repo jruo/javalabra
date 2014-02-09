@@ -32,9 +32,9 @@ public class TasoTest {
 
     @Before
     public void setUp() {
-        peli = new Peli();
-        taso1 = new Taso(peli, oliot1);
-        taso2 = new Taso(peli, oliot2);
+        peli = Peli.INSTANSSI;
+        taso1 = new Taso(oliot1);
+        taso2 = new Taso(oliot2);
     }
 
     @Test

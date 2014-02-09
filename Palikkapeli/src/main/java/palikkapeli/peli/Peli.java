@@ -15,8 +15,9 @@ import palikkapeli.ui.syote.Ohjain;
  *
  * @author Janne Ruoho
  */
-public final class Peli {
+public enum Peli {
 
+    INSTANSSI;
     private final Oliot oliot;
     private final Ikkuna ikkuna;
     private final Ohjain ohjain;
@@ -28,20 +29,19 @@ public final class Peli {
     public static final int IKKUNAN_LEVEYS = 500;
     public static final int IKKUNAN_KORKEUS = 400;
 
-    public Peli() {
-        ikkuna = new Ikkuna(IKKUNAN_LEVEYS, IKKUNAN_KORKEUS);
+    Peli() {
+        ikkuna = new Ikkuna();
+        grafiikka = new Grafiikka(ikkuna.getPiirtoPaneeli());
         nappaimisto = new Nappaimisto();
         ohjain = new Ohjain(nappaimisto);
-        ruudukko = new Ruudukko<>();
         logiikka = new Logiikka(ohjain);
-        grafiikka = new Grafiikka(ikkuna.getPiirtoPaneeli());
-        tasonVaihtaja = new TasonVaihtaja(this);
+        tasonVaihtaja = new TasonVaihtaja();
         oliot = new Oliot();
-
-        ikkuna.lisaaNapaimistonKuuntelija(nappaimisto.getKuuntelija());
+        ruudukko = new Ruudukko<>();
 
         logiikka.kaynnista();
         grafiikka.kaynnista();
+        ikkuna.lisaaNapaimistonKuuntelija(nappaimisto.getKuuntelija());
     }
 
     /**
