@@ -17,19 +17,29 @@ import palikkapeli.ui.grafiikka.alkeispiirros.Viiva;
  *
  * @author Janne Ruoho
  */
-public final class Piirros {
+public final class Piirros implements Comparable<Piirros> {
 
     private final PeliOlio peliOlio;
     private final List<Alkeispiirros> osat;
+    private final int piirtoSyvyys;
 
     public Piirros(PeliOlio omistaja) {
-        this(omistaja, null);
+        this(omistaja, null, 0);
+    }
+
+    public Piirros(PeliOlio omistaja, int piirtoSyvyys) {
+        this(omistaja, null, piirtoSyvyys);
     }
 
     public Piirros(PeliOlio omistaja, String kuvanTiedostonimi) {
+        this(omistaja, kuvanTiedostonimi, 0);
+    }
+
+    public Piirros(PeliOlio omistaja, String kuvanTiedostonimi, int piirtoSyvyys) {
         osat = new ArrayList<>();
         peliOlio = omistaja;
         lisaaKuva(0, 0, kuvanTiedostonimi);
+        this.piirtoSyvyys = piirtoSyvyys;
     }
 
     /**
@@ -108,5 +118,11 @@ public final class Piirros {
         Viiva viiva = new Viiva(xd1, yd1, xd2, yd2, vari);
         osat.add(viiva);
         return viiva;
+    }
+
+    @Override
+    public int compareTo(Piirros o) {
+        //Järjestetään piirtosyvyyden mukaan laskevaan järjestykseen
+        return o.piirtoSyvyys - piirtoSyvyys;
     }
 }

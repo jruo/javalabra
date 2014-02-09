@@ -1,8 +1,8 @@
 package palikkapeli.peli;
 
 import palikkapeli.peli.logiikka.Logiikka;
+import palikkapeli.peli.logiikka.Oliot;
 import palikkapeli.peli.logiikka.Ruudukko;
-import palikkapeli.peli.olio.Oliot;
 import palikkapeli.peli.olio.PeliOlio;
 import palikkapeli.peli.taso.TasonVaihtaja;
 import palikkapeli.ui.Ikkuna;

@@ -57,3 +57,11 @@ Ajankäytön kohde: Ohjain-säikeen poistaminen ja liittäminen Logiikkaan, peli
 [05.02.]
 Käytetty aika: ~6h
 Ajankäytön kohde: Värisysteemi, pelaajienvaihtoa ja kaikenlaista sälää
+
+[06.02.]
+Käytetty aika: ~5h
+Ajankäytön kohde: Kaavioita, testausta ja pientä koodausta
+
+[08-09.02.]
+Käytetty aika: ~10h
+Ajankäytön kohde: Uusia peliolioita, refaktorointia yms

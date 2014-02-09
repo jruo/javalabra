@@ -7,7 +7,7 @@ import palikkapeli.ui.syote.Nappain;
  *
  * @author Janne Ruoho
  */
-public interface Aktivoituva extends Ohjautuva {
+public interface Aktivoitava extends Ohjattava {
 
     /**
      * Metodi, jota kutsutaan kun näppäin on painettu

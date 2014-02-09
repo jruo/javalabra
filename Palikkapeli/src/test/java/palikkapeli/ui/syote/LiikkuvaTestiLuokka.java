@@ -1,13 +1,13 @@
 package palikkapeli.ui.syote;
 
 import palikkapeli.peli.logiikka.Suunta;
-import palikkapeli.peli.logiikka.ohjaus.Liikkuva;
+import palikkapeli.peli.logiikka.ohjaus.Liikutettava;
 
 /**
  *
  * @author Janne Ruoho
  */
-public class LiikkuvaTestiLuokka implements Liikkuva {
+public class LiikkuvaTestiLuokka implements Liikutettava {
 
     private int x, y;
 

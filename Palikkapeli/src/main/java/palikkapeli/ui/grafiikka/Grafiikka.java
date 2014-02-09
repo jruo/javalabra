@@ -2,6 +2,7 @@ package palikkapeli.ui.grafiikka;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.util.Collections;
 import palikkapeli.peli.Peli;
 import palikkapeli.peli.PeliSilmukka;
 import palikkapeli.ui.PiirtoPaneeli;
@@ -41,5 +42,14 @@ public final class Grafiikka extends PeliSilmukka<Piirros> {
      */
     public void piirraTausta() {
         kuvanGrafiikka.drawImage(taustaKuva, null, 0, 0);
+//        kuvanGrafiikka.setColor(Color.lightGray);
+//        kuvanGrafiikka.fillRect(0, 0, Peli.IKKUNAN_LEVEYS, Peli.IKKUNAN_KORKEUS);
+    }
+
+    /**
+     * Järjestää kokoelman oliot piirtojärjestykseen
+     */
+    public void jarjestaPiirtosyvyys() {
+        Collections.sort(getOliot());
     }
 }

@@ -7,7 +7,7 @@ import palikkapeli.peli.logiikka.Suunta;
  *
  * @author Janne Ruoho
  */
-public interface Liikkuva extends Ohjautuva {
+public interface Liikutettava extends Ohjattava {
 
     /**
      * Liikkuu annettuun suuntaan

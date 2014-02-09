@@ -8,11 +8,16 @@ import java.util.List;
 import java.util.Map;
 import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.Ruudukko;
-import palikkapeli.peli.olio.KiinteaSeina;
-import palikkapeli.peli.olio.PelaajanVaihtaja;
+import palikkapeli.peli.olio.apuolio.PelaajanVaihtaja;
 import palikkapeli.peli.olio.PeliOlio;
-import palikkapeli.peli.olio.PunainenPelaaja;
-import palikkapeli.peli.olio.SininenPelaaja;
+import palikkapeli.peli.olio.apuolio.TasonResetoija;
+import palikkapeli.peli.olio.liikkumaton.KiinteaSeina;
+import palikkapeli.peli.olio.liikkumaton.PunainenLapaisevaSeina;
+import palikkapeli.peli.olio.liikkumaton.SininenLapaisevaSeina;
+import palikkapeli.peli.olio.liikkuva.PunainenLaatikko;
+import palikkapeli.peli.olio.liikkuva.PunainenPelaaja;
+import palikkapeli.peli.olio.liikkuva.SininenLaatikko;
+import palikkapeli.peli.olio.liikkuva.SininenPelaaja;
 import palikkapeli.ui.grafiikka.Piirros;
 
 /**
@@ -31,6 +36,12 @@ public final class Taso {
         olionID.put(10, PelaajanVaihtaja.class);
         olionID.put(11, SininenPelaaja.class);
         olionID.put(12, PunainenPelaaja.class);
+        olionID.put(21, SininenLapaisevaSeina.class);
+        olionID.put(22, PunainenLapaisevaSeina.class);
+        olionID.put(31, SininenLaatikko.class);
+        olionID.put(32, PunainenLaatikko.class);
+
+        olionID.put(101, TasonResetoija.class);
     }
 
     public Taso(Peli peli, int[][] taso) {
@@ -92,6 +103,7 @@ public final class Taso {
     public void lisaaOliotJaPiirrokset(List<PeliOlio> oliot, List<Piirros> piirrokset) {
         peli.getLogiikka().lisaa(oliot);
         peli.getGrafiikka().lisaa(piirrokset);
+        peli.getGrafiikka().jarjestaPiirtosyvyys();
         peli.getOhjain().lisaa(oliot);
         peli.getOliot().lisaa(oliot);
         peli.getOliot().alustaOliot();

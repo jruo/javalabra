@@ -1,7 +1,7 @@
 package palikkapeli.peli.logiikka;
 
 /**
- * Suunta. Aika itsestäänselvää...
+ * Suunta
  *
  * @author Janne Ruoho
  */

@@ -1,10 +1,12 @@
-package palikkapeli.peli.olio;
+package palikkapeli.peli.olio.apuolio;
 
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import palikkapeli.peli.Peli;
-import palikkapeli.peli.logiikka.ohjaus.Aktivoituva;
+import palikkapeli.peli.logiikka.ohjaus.Aktivoitava;
+import palikkapeli.peli.olio.PeliOlio;
+import palikkapeli.peli.olio.liikkuva.Pelaaja;
 import palikkapeli.ui.grafiikka.Piirros;
 import palikkapeli.ui.syote.Nappain;
 
@@ -14,7 +16,7 @@ import palikkapeli.ui.syote.Nappain;
  *
  * @author Janne Ruoho
  */
-public class PelaajanVaihtaja extends PeliOlio implements Aktivoituva {
+public class PelaajanVaihtaja extends PeliOlio implements Aktivoitava {
 
     private final List<Pelaaja> pelaajat;
     private Pelaaja nykyinenOhjattava;
@@ -40,7 +42,7 @@ public class PelaajanVaihtaja extends PeliOlio implements Aktivoituva {
     }
 
     @Override
-    public void suoritaOmaLogiikka() {
+    public void suoritaLogiikka() {
         if (nykyinenOhjattava != null) {
             x = nykyinenOhjattava.getX();
             y = nykyinenOhjattava.getY();
@@ -84,9 +86,4 @@ public class PelaajanVaihtaja extends PeliOlio implements Aktivoituva {
     public Nappain getAktivoivaNappain() {
         return Nappain.VALILYONTI;
     }
-
-    @Override
-    public void alusta() {
-    }
-
 }

@@ -1,6 +1,7 @@
-package palikkapeli.peli.olio;
+package palikkapeli.peli.olio.liikkumaton;
 
 import palikkapeli.peli.Peli;
+import palikkapeli.peli.olio.PeliOlio;
 import palikkapeli.ui.grafiikka.Piirros;
 
 /**
@@ -18,13 +19,4 @@ public class KiinteaSeina extends PeliOlio {
     public Piirros luoOmaPiirros() {
         return new Piirros(this, "/kuvat/kiinteaseina.png");
     }
-
-    @Override
-    public void suoritaOmaLogiikka() {
-    }
-
-    @Override
-    public void alusta() {
-    }
-
 }

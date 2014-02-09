@@ -24,7 +24,7 @@ public abstract class PeliKokoelma<T> {
      * @param lisattava Lisättävä olio
      */
     public final void lisaa(T lisattava) {
-        if (oliot.contains(lisattava)) {
+        if (lisattava == null || oliot.contains(lisattava)) {
             return;
         }
         oliot.add(lisattava);

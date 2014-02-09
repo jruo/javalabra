@@ -5,10 +5,10 @@ import org.junit.Before;
 import org.junit.Test;
 import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.Ruutu;
-import palikkapeli.peli.olio.KiinteaSeina;
-import palikkapeli.peli.olio.Pelaaja;
-import palikkapeli.peli.olio.PunainenPelaaja;
-import palikkapeli.peli.olio.SininenPelaaja;
+import palikkapeli.peli.olio.liikkumaton.KiinteaSeina;
+import palikkapeli.peli.olio.liikkuva.Pelaaja;
+import palikkapeli.peli.olio.liikkuva.PunainenPelaaja;
+import palikkapeli.peli.olio.liikkuva.SininenPelaaja;
 
 /**
  *

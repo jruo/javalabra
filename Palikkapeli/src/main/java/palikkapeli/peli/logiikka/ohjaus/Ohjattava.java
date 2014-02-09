@@ -5,6 +5,5 @@ package palikkapeli.peli.logiikka.ohjaus;
  *
  * @author Janne Ruoho
  */
-public interface Ohjautuva {
-    //Ei mitään metodeja, auttaa selkeyttämään rakennetta pelkällä olemassaolollaan
+public interface Ohjattava {
 }

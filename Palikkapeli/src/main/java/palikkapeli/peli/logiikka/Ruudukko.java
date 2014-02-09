@@ -132,6 +132,21 @@ public final class Ruudukko<T> {
     }
 
     /**
+     * Palauttaa suodattimen, joka hyväksyy vain annetussa ruudussa olevat oliot
+     *
+     * @param ruutu Ruutu, jonka oliot suodatin hyväksyy
+     * @return Suodatin
+     */
+    public Suodatin<T> suodataRuudunOliot(final Ruutu ruutu) {
+        return new Suodatin<T>() {
+            @Override
+            public boolean hyvaksy(T suodatettava) {
+                return oliotRuudussa(ruutu).contains(suodatettava);
+            }
+        };
+    }
+
+    /**
      * Siirtää olion annettuun ruutuun
      *
      * @param olio Siirrettävä olio

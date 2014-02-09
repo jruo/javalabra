@@ -25,20 +25,40 @@ public final class TasonVaihtaja {
     public TasonVaihtaja(Peli peli) {
         this.peli = peli;
         lataaja = new TasonLataaja(peli);
-        nykyinenTaso = 0;
+        nykyinenTaso = -1;
     }
 
     /**
      * Siirtyy pelin seuraavaan tasoon
      */
     public void seuraavaTaso() {
-        if (nykyinenTaso < tasot.size()) {
-            String tiedostoNimi = tasot.get(nykyinenTaso++);
-            Taso taso = lataaja.lataaTaso(tiedostoNimi);
-            taso.rakennaTaso();
+        if (nykyinenTaso < tasot.size() - 1) {
+            String tiedostonimi = tasot.get(++nykyinenTaso);
+            luoTaso(tiedostonimi);
         } else {
             //peli läpi
         }
+    }
+
+    /**
+     * Resetoi pelin nykyisen tason
+     */
+    public void resetoiNykyinenTaso() {
+        String tiedostonimi = tasot.get(nykyinenTaso);
+
+        peli.getGrafiikka().pysayta(); // Estetään ruudun välkkyminen resetoinnin aikana
+        luoTaso(tiedostonimi);
+        peli.getGrafiikka().kaynnista();
+    }
+
+    /**
+     * Luo tason annetusta tiedostosta
+     *
+     * @param tiedostonimi Tasotiedoston tiedostonimi
+     */
+    public void luoTaso(String tiedostonimi) {
+        Taso taso = lataaja.lataaTaso(tiedostonimi);
+        taso.rakennaTaso();
     }
 
     /**

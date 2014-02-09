@@ -1,12 +1,12 @@
 package palikkapeli.ui.syote;
 
-import palikkapeli.peli.logiikka.ohjaus.Aktivoituva;
+import palikkapeli.peli.logiikka.ohjaus.Aktivoitava;
 
 /**
  *
  * @author Janne Ruoho
  */
-public class AktivoituvaTestiLuokka implements Aktivoituva {
+public class AktivoituvaTestiLuokka implements Aktivoitava {
 
     private int laskuri = 0;
 

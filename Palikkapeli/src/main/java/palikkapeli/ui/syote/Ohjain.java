@@ -2,16 +2,16 @@ package palikkapeli.ui.syote;
 
 import palikkapeli.peli.PeliKokoelma;
 import palikkapeli.peli.logiikka.Suunta;
-import palikkapeli.peli.logiikka.ohjaus.Aktivoituva;
-import palikkapeli.peli.logiikka.ohjaus.Liikkuva;
-import palikkapeli.peli.logiikka.ohjaus.Ohjautuva;
+import palikkapeli.peli.logiikka.ohjaus.Aktivoitava;
+import palikkapeli.peli.logiikka.ohjaus.Liikutettava;
+import palikkapeli.peli.logiikka.ohjaus.Ohjattava;
 
 /**
  * Huolehtii käyttäjän syötteiden välittämisestä logiikalle
  *
  * @author Janne Ruoho
  */
-public final class Ohjain extends PeliKokoelma<Ohjautuva> {
+public final class Ohjain extends PeliKokoelma<Ohjattava> {
 
     private final Nappaimisto nappaimisto;
 
@@ -20,25 +20,25 @@ public final class Ohjain extends PeliKokoelma<Ohjautuva> {
     }
 
     /**
-     * Käsittelee annetun Ohjautuva-olion
+     * Käsittelee annetun Ohjattava-olion
      *
-     * @param ohjattava Ohjautuva
+     * @param ohjattava Ohjattava
      */
-    public void kasitteleOhjattava(Ohjautuva ohjattava) {
-        if (ohjattava instanceof Liikkuva) {
-            kasitteleLiikkuva((Liikkuva) ohjattava);
+    public void kasitteleOhjattava(Ohjattava ohjattava) {
+        if (ohjattava instanceof Liikutettava) {
+            kasitteleLiikkuva((Liikutettava) ohjattava);
         }
-        if (ohjattava instanceof Aktivoituva) {
-            kasitteleAktivoituva((Aktivoituva) ohjattava);
+        if (ohjattava instanceof Aktivoitava) {
+            kasitteleAktivoituva((Aktivoitava) ohjattava);
         }
     }
 
     /**
-     * Käsittelee annetun Liikkuva-olion
+     * Käsittelee annetun Liikutettava-olion
      *
-     * @param liikutettava Liikkuva
+     * @param liikutettava Liikutettava
      */
-    public void kasitteleLiikkuva(Liikkuva liikutettava) {
+    public void kasitteleLiikkuva(Liikutettava liikutettava) {
         if (Nappain.YLOS.onPainettu(nappaimisto)) {
             liikutettava.liiku(Suunta.YLOS);
         } else if (Nappain.ALAS.onPainettu(nappaimisto)) {
@@ -53,9 +53,9 @@ public final class Ohjain extends PeliKokoelma<Ohjautuva> {
     /**
      * Käsittelee annetun aktivoituva-olion
      *
-     * @param aktivoituva Aktivoituva
+     * @param aktivoituva Aktivoitava
      */
-    public void kasitteleAktivoituva(Aktivoituva aktivoituva) {
+    public void kasitteleAktivoituva(Aktivoitava aktivoituva) {
         if (aktivoituva.getAktivoivaNappain().onPainettu(nappaimisto)) {
             aktivoituva.aktivoidu();
         }
@@ -66,7 +66,7 @@ public final class Ohjain extends PeliKokoelma<Ohjautuva> {
      */
     public void kasitteleOhjattavat() {
         nappaimisto.synkronoi();
-        for (Ohjautuva ohjattava : getOliot()) {
+        for (Ohjattava ohjattava : getOliot()) {
             kasitteleOhjattava(ohjattava);
         }
     }

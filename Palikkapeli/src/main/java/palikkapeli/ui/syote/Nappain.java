@@ -13,7 +13,8 @@ public enum Nappain {
     ALAS(KeyEvent.VK_DOWN),
     VASEN(KeyEvent.VK_LEFT),
     OIKEA(KeyEvent.VK_RIGHT),
-    VALILYONTI(KeyEvent.VK_SPACE);
+    VALILYONTI(KeyEvent.VK_SPACE),
+    R(KeyEvent.VK_R);
     private final int nappainkoodi;
 
     private Nappain(int nappainkoodi) {

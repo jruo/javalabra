@@ -2,9 +2,10 @@ package palikkapeli.peli.olio;
 
 import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.Looginen;
+import palikkapeli.peli.logiikka.Oliot;
 import palikkapeli.peli.logiikka.Ruudukko;
 import palikkapeli.peli.logiikka.Ruutu;
-import palikkapeli.peli.logiikka.ohjaus.Ohjautuva;
+import palikkapeli.peli.logiikka.ohjaus.Ohjattava;
 import palikkapeli.ui.grafiikka.Piirros;
 
 /**
@@ -12,11 +13,12 @@ import palikkapeli.ui.grafiikka.Piirros;
  *
  * @author Janne Ruoho
  */
-public abstract class PeliOlio implements Looginen, Ohjautuva {
+public abstract class PeliOlio implements Looginen, Ohjattava {
 
     protected int x, y;
-    protected Peli peli;
-    protected Ruudukko ruudukko;
+    protected final Peli peli;
+    protected final Oliot oliot;
+    protected final Ruudukko ruudukko;
 
     /**
      * Luo PeliOlion annettuun Peliin ja koordinaatteihin
@@ -29,6 +31,7 @@ public abstract class PeliOlio implements Looginen, Ohjautuva {
         this.peli = peli;
         this.x = x;
         this.y = y;
+        this.oliot = peli.getOliot();
         this.ruudukko = peli.getRuudukko();
         this.ruudukko.lisaaOlio(this, sijaintiRuuduksi());
     }
@@ -96,30 +99,23 @@ public abstract class PeliOlio implements Looginen, Ohjautuva {
         return ruudukko.olionRuutu(this);
     }
 
-    @Override
-    public final void suoritaLogiikka() {
-        suoritaOmaLogiikka();
-        if (!omaRuutu().equals(sijaintiRuuduksi())) {
-            ruudukko.siirraOlio(this, sijaintiRuuduksi());
-        }
-    }
-
     /**
      * Metodi, joka kutsutaan vasta kun kaikki tason oliot on lisätty
      * tarpeellisiin kokoelmiin yms
      */
-    public abstract void alusta();
-
-    /**
-     * Metodi PeliOlion omalle logiikalle
-     */
-    public abstract void suoritaOmaLogiikka();
+    public void alusta() {
+    }
 
     /**
      * Metodi, jossa PeliOlio luo oman piirroksensa
      *
      * @return Piirros
      */
-    public abstract Piirros luoOmaPiirros();
+    public Piirros luoOmaPiirros() {
+        return null;
+    }
 
+    @Override
+    public void suoritaLogiikka() {
+    }
 }
