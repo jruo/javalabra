@@ -13,7 +13,9 @@ import palikkapeli.peli.olio.apuolio.PelaajanVaihtaja;
 import palikkapeli.peli.olio.apuolio.TasonResetoija;
 import palikkapeli.peli.olio.liikkumaton.KiinteaSeina;
 import palikkapeli.peli.olio.liikkumaton.PunainenLapaisevaSeina;
+import palikkapeli.peli.olio.liikkumaton.PunainenTasonMaali;
 import palikkapeli.peli.olio.liikkumaton.SininenLapaisevaSeina;
+import palikkapeli.peli.olio.liikkumaton.SininenTasonMaali;
 import palikkapeli.peli.olio.liikkuva.PunainenLaatikko;
 import palikkapeli.peli.olio.liikkuva.PunainenPelaaja;
 import palikkapeli.peli.olio.liikkuva.SininenLaatikko;
@@ -39,6 +41,8 @@ public final class Taso {
         olionID.put(22, PunainenLapaisevaSeina.class);
         olionID.put(31, SininenLaatikko.class);
         olionID.put(32, PunainenLaatikko.class);
+        olionID.put(41, SininenTasonMaali.class);
+        olionID.put(42, PunainenTasonMaali.class);
 
         olionID.put(101, TasonResetoija.class);
     }

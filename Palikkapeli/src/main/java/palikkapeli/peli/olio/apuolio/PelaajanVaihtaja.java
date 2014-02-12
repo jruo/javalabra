@@ -3,6 +3,7 @@ package palikkapeli.peli.olio.apuolio;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
+import palikkapeli.peli.Peli;
 import palikkapeli.peli.logiikka.ohjaus.Aktivoitava;
 import palikkapeli.peli.olio.PeliOlio;
 import palikkapeli.peli.olio.liikkuva.Pelaaja;
@@ -40,6 +41,18 @@ public class PelaajanVaihtaja extends PeliOlio implements Aktivoitava {
         pelaajat.add(pelaaja);
     }
 
+    public void poistaPelaaja(Pelaaja pelaaja) {
+        if (pelaajat.size() > 1 && nykyinenOhjattava.equals(pelaaja)) {
+            vaihdaPelaaja();
+        }
+        if (pelaajat.size() == 1) {
+            //jos poistettava pelaaja on viimeinen kentällä, niin taso läpi
+            Peli.INSTANSSI.getTasonVaihtaja().seuraavaTaso();
+        } else {
+            pelaajat.remove(pelaaja);
+        }
+    }
+
     @Override
     public void suoritaLogiikka() {
         if (nykyinenOhjattava != null) {
@@ -68,6 +81,11 @@ public class PelaajanVaihtaja extends PeliOlio implements Aktivoitava {
         if (pelaajat.isEmpty() || System.currentTimeMillis() - viimeksiVaihdettu < 500) {
             return;
         }
+        vaihdaPelaaja();
+        viimeksiVaihdettu = System.currentTimeMillis();
+    }
+
+    public void vaihdaPelaaja() {
         int koko = pelaajat.size();
         int nykyisenIndeksi = pelaajat.indexOf(nykyinenOhjattava);
 
@@ -78,7 +96,6 @@ public class PelaajanVaihtaja extends PeliOlio implements Aktivoitava {
             nykyinenOhjattava = pelaajat.get(0);
         }
         nykyinenOhjattava.setOhjattavissa(true);
-        viimeksiVaihdettu = System.currentTimeMillis();
     }
 
     @Override

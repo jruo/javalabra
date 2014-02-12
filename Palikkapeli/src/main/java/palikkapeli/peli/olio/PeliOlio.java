@@ -113,7 +113,7 @@ public abstract class PeliOlio implements Looginen, Ohjattava {
      * @return Piirros
      */
     public Piirros luoOmaPiirros() {
-        return null;
+        return new Piirros(this);
     }
 
     @Override

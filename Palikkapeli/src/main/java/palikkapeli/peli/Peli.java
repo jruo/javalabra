@@ -11,7 +11,7 @@ import palikkapeli.ui.syote.Nappaimisto;
 import palikkapeli.ui.syote.Ohjain;
 
 /**
- * Pitää koko pelin kaikki komponentit kasassa
+ * Pitää koko pelin kaikki komponentit kasassa. Luokka on enum, koska singleton
  *
  * @author Janne Ruoho
  */
@@ -27,7 +27,7 @@ public enum Peli {
     private final TasonVaihtaja tasonVaihtaja;
     private final Ruudukko<PeliOlio> ruudukko;
     public static final int IKKUNAN_LEVEYS = 500;
-    public static final int IKKUNAN_KORKEUS = 400;
+    public static final int IKKUNAN_KORKEUS = 420;
 
     Peli() {
         ikkuna = new Ikkuna();
