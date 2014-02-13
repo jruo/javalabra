@@ -10,8 +10,18 @@ import java.awt.image.BufferedImage;
  */
 public class Kuva extends Alkeispiirros {
 
+    /**
+     * Kuva
+     */
     private final BufferedImage kuva;
 
+    /**
+     * Luo uuden Kuvan
+     *
+     * @param kuva Kuva
+     * @param x X
+     * @param y Y
+     */
     public Kuva(BufferedImage kuva, int x, int y) {
         super(x, y);
         this.kuva = kuva;

@@ -4,11 +4,18 @@ import palikkapeli.peli.logiikka.Vari;
 import palikkapeli.ui.grafiikka.Piirros;
 
 /**
+ * Punaisen värin läpäisevä seinä
  *
  * @author Janne Ruoho
  */
 public class PunainenLapaisevaSeina extends LapaisevaSeina {
 
+    /**
+     * Luo uuden PunainenLapaisevaSeina-olion annettuihin koordinaatteihin
+     *
+     * @param x X
+     * @param y Y
+     */
     public PunainenLapaisevaSeina(int x, int y) {
         super(x, y);
     }

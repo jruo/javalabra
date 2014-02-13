@@ -13,8 +13,16 @@ import palikkapeli.peli.logiikka.ohjaus.Ohjattava;
  */
 public final class Ohjain extends PeliKokoelma<Ohjattava> {
 
+    /**
+     * Ohjaimen näppäimistö
+     */
     private final Nappaimisto nappaimisto;
 
+    /**
+     * Luo uuden Ohjain-olion
+     *
+     * @param nappaimisto Ohjaimen näppäimistö
+     */
     public Ohjain(Nappaimisto nappaimisto) {
         this.nappaimisto = nappaimisto;
     }

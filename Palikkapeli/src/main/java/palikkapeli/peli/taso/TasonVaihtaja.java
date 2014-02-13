@@ -10,8 +10,17 @@ import java.util.List;
  */
 public final class TasonVaihtaja {
 
+    /**
+     * Lista tasojen tiedostonimistä
+     */
     private static final List<String> tasot = new ArrayList<>();
+    /**
+     * TasonLataaja, joka lataa tasot tiedostoista
+     */
     private final TasonLataaja lataaja;
+    /**
+     * Tämänhetkinen taso
+     */
     private int nykyinenTaso;
 
     static {
@@ -20,6 +29,9 @@ public final class TasonVaihtaja {
         tasot.add("/tasot/taso3");
     }
 
+    /**
+     * Luo uuden TasonVaihtajan
+     */
     public TasonVaihtaja() {
         lataaja = new TasonLataaja();
         nykyinenTaso = -1;

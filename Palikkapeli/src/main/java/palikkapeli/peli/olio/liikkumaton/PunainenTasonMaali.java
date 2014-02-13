@@ -4,11 +4,18 @@ import palikkapeli.peli.logiikka.Vari;
 import palikkapeli.ui.grafiikka.Piirros;
 
 /**
+ * Punaisen pelaajan maali
  *
  * @author Janne Ruoho
  */
 public class PunainenTasonMaali extends TasonMaali {
 
+    /**
+     * Luo uuden PunaninenTasonMaali-olion annettuihin koordinaatteihin
+     *
+     * @param x X
+     * @param y Y
+     */
     public PunainenTasonMaali(int x, int y) {
         super(x, y);
     }

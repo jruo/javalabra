@@ -12,9 +12,21 @@ import palikkapeli.peli.olio.apuolio.PelaajanVaihtaja;
  */
 public abstract class Pelaaja extends LiikkuvaPeliOlio implements Liikutettava {
 
+    /**
+     * Onko pelaaja ohjattavissa
+     */
     private boolean ohjattavissa;
+    /**
+     * Suunta, johon pelaaja on liikkumassa
+     */
     private Suunta liikkumissuunta;
 
+    /**
+     * Luo uuden Pelaajan annettuihin koordinaatteihin
+     *
+     * @param x X
+     * @param y Y
+     */
     public Pelaaja(int x, int y) {
         super(x, y);
         ohjattavissa = false;

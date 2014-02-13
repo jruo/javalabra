@@ -18,10 +18,25 @@ import palikkapeli.ui.syote.Nappain;
  */
 public class PelaajanVaihtaja extends PeliOlio implements Aktivoitava {
 
+    /**
+     * Lista rekisteröidyistä pelaajista
+     */
     private final List<Pelaaja> pelaajat;
+    /**
+     * Tämänhetkinen ohjattava pelaaja
+     */
     private Pelaaja nykyinenOhjattava;
+    /**
+     * Aikaleima viimeisestä vaihdosta
+     */
     private long viimeksiVaihdettu;
 
+    /**
+     * Luo uuden pelaajanvaihtajan, koordinaateilla ei ole merkitystä
+     *
+     * @param x
+     * @param y
+     */
     public PelaajanVaihtaja(int x, int y) {
         super(x, y);
         pelaajat = new ArrayList<>();
@@ -41,6 +56,12 @@ public class PelaajanVaihtaja extends PeliOlio implements Aktivoitava {
         pelaajat.add(pelaaja);
     }
 
+    /**
+     * Poistaa annetun pelaajan. Jos pelaaja on viimeinen kentässä, siirtyy
+     * seuraavaan tasoon
+     *
+     * @param pelaaja Poistettava pelaaja
+     */
     public void poistaPelaaja(Pelaaja pelaaja) {
         if (pelaajat.size() > 1 && nykyinenOhjattava.equals(pelaaja)) {
             vaihdaPelaaja();
@@ -51,6 +72,22 @@ public class PelaajanVaihtaja extends PeliOlio implements Aktivoitava {
         } else {
             pelaajat.remove(pelaaja);
         }
+    }
+
+    /**
+     * Vaihtaa ohjattavan pelaajan seuraavaan listassa
+     */
+    public void vaihdaPelaaja() {
+        int koko = pelaajat.size();
+        int nykyisenIndeksi = pelaajat.indexOf(nykyinenOhjattava);
+
+        nykyinenOhjattava.setOhjattavissa(false);
+        if (nykyisenIndeksi < koko - 1) {
+            nykyinenOhjattava = pelaajat.get(nykyisenIndeksi + 1);
+        } else {
+            nykyinenOhjattava = pelaajat.get(0);
+        }
+        nykyinenOhjattava.setOhjattavissa(true);
     }
 
     @Override
@@ -83,19 +120,6 @@ public class PelaajanVaihtaja extends PeliOlio implements Aktivoitava {
         }
         vaihdaPelaaja();
         viimeksiVaihdettu = System.currentTimeMillis();
-    }
-
-    public void vaihdaPelaaja() {
-        int koko = pelaajat.size();
-        int nykyisenIndeksi = pelaajat.indexOf(nykyinenOhjattava);
-
-        nykyinenOhjattava.setOhjattavissa(false);
-        if (nykyisenIndeksi < koko - 1) {
-            nykyinenOhjattava = pelaajat.get(nykyisenIndeksi + 1);
-        } else {
-            nykyinenOhjattava = pelaajat.get(0);
-        }
-        nykyinenOhjattava.setOhjattavissa(true);
     }
 
     @Override

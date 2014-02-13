@@ -10,8 +10,16 @@ import palikkapeli.ui.syote.Ohjain;
  */
 public final class Logiikka extends PeliSilmukka<Looginen> {
 
+    /**
+     * Ohjain, joka käsittelee pelaajan syötteen välittämisen logiikalle
+     */
     private final Ohjain ohjain;
 
+    /**
+     * Luo uuden Logiikka-olion
+     *
+     * @param ohjain Ohjain
+     */
     public Logiikka(Ohjain ohjain) {
         this.ohjain = ohjain;
     }

@@ -11,10 +11,22 @@ import java.util.ConcurrentModificationException;
  */
 public abstract class PeliSilmukka<T> extends PeliKokoelma<T> implements Runnable {
 
+    /**
+     * Kuinka monta kertaa sekunnissa silmukka päivittyy
+     */
     public static final int PAIVITYKSIA_SEKUNNISSA = 60;
+    /**
+     * Silmukan säie
+     */
     private final Thread saie;
+    /**
+     * Silmukan tila
+     */
     private boolean kaynnissa;
 
+    /**
+     * Luo uuden PeliSilmukan
+     */
     public PeliSilmukka() {
         kaynnissa = false;
         saie = new Thread(this);

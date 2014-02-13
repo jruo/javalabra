@@ -11,7 +11,7 @@ import palikkapeli.ui.syote.Nappaimisto;
 import palikkapeli.ui.syote.Ohjain;
 
 /**
- * Pitää koko pelin kaikki komponentit kasassa. Luokka on enum, koska singleton
+ * Pitää koko pelin kaikki komponentit kasassa.
  *
  * @author Janne Ruoho
  */

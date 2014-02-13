@@ -9,6 +9,11 @@ import palikkapeli.peli.Peli;
  */
 public class Main {
 
+    /**
+     * main.
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         Peli.INSTANSSI.getTasonVaihtaja().seuraavaTaso();
     }

@@ -12,9 +12,19 @@ import java.util.Map;
  */
 public final class Nappaimisto {
 
+    /**
+     * Näppäimistönkuuntelija
+     */
     private final KeyListener kuuntelija;
+    /**
+     * Kartat, jotka mappaavat näppäinkoodit näppäinten tiloihin (painettu/ei
+     * painettu)
+     */
     private final Map<Integer, Boolean> nappaintenTodellinenTila, nappaintenSynkronoituTila;
 
+    /**
+     * Luo uuden Näppäimistönkäsittelijän
+     */
     public Nappaimisto() {
         kuuntelija = new NappaimistonKuuntelija();
         nappaintenTodellinenTila = new HashMap<>();

@@ -12,8 +12,14 @@ import java.util.List;
  */
 public abstract class PeliKokoelma<T> {
 
+    /**
+     * Kokoelman oliot listassa
+     */
     private final List<T> oliot;
 
+    /**
+     * Luo uuden PeliKokoelman
+     */
     public PeliKokoelma() {
         oliot = new ArrayList<>();
     }

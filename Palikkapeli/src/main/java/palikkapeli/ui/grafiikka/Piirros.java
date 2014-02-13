@@ -19,22 +19,56 @@ import palikkapeli.ui.grafiikka.alkeispiirros.Viiva;
  */
 public final class Piirros implements Comparable<Piirros> {
 
+    /**
+     * Piirroksen omistajaolio
+     */
     private final PeliOlio peliOlio;
+    /**
+     * Lista piirroksen alkeispiirroksista
+     */
     private final List<Alkeispiirros> osat;
+    /**
+     * Piirroksen piirtosyvyys. Suurimman piirtosyvyyden piirros piirtyy aina
+     * alimmaiseksi ja pienimmän ylimmäiseksi
+     */
     private final int piirtoSyvyys;
 
+    /**
+     * Luo uuden Piirroksen
+     *
+     * @param omistaja Piirroksen omistaja
+     */
     public Piirros(PeliOlio omistaja) {
         this(omistaja, null, 0);
     }
 
+    /**
+     * Luo uuden Piirroksen piirtosyvyydellä
+     *
+     * @param omistaja Piirroksen omistaja
+     * @param piirtoSyvyys Piirtosyvyys
+     */
     public Piirros(PeliOlio omistaja, int piirtoSyvyys) {
         this(omistaja, null, piirtoSyvyys);
     }
 
+    /**
+     * Luo uuden Piirroksen kuvalla
+     *
+     * @param omistaja Piirroksen omistaja
+     * @param kuvanTiedostonimi Kuvan tiedostonimi
+     */
     public Piirros(PeliOlio omistaja, String kuvanTiedostonimi) {
         this(omistaja, kuvanTiedostonimi, 0);
     }
 
+    /**
+     * Luo uuden Piirroksen kuvalla ja piirtosyvyydellä
+     *
+     * @param omistaja Piirroksen omistaja
+     * @param kuvanTiedostonimi Kuvan tiedostonimi
+     * @param piirtoSyvyys Piirtosyvyys
+     */
     public Piirros(PeliOlio omistaja, String kuvanTiedostonimi, int piirtoSyvyys) {
         osat = new ArrayList<>();
         peliOlio = omistaja;

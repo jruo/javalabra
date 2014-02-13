@@ -10,9 +10,23 @@ import java.awt.Graphics2D;
  */
 public class Teksti extends Alkeispiirros implements Muokattava<String> {
 
+    /**
+     * Tekstin sisältä
+     */
     private String teksti;
+    /**
+     * Tekstin väri
+     */
     private final Color vari;
 
+    /**
+     * Luo uuden Tekstin
+     *
+     * @param teksti Tekstin sisältö
+     * @param vari Tekstin väri
+     * @param x X-koordinaatti
+     * @param y Y-koordinaatti
+     */
     public Teksti(String teksti, Color vari, int x, int y) {
         super(x, y);
         this.teksti = teksti;

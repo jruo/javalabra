@@ -14,11 +14,29 @@ import palikkapeli.ui.PiirtoPaneeli;
  */
 public final class Grafiikka extends PeliSilmukka<Piirros> {
 
+    /**
+     * Kuva, johon kaikki grafiikka piirretään. Lopuksi kuva itse piirretään
+     * piirtopaneeliin
+     */
     private final BufferedImage puskuriKuva;
+    /**
+     * Taustakuva
+     */
     private final BufferedImage taustaKuva;
+    /**
+     * Piirtopaneelin grafiikkaolio
+     */
     private final Graphics2D paneelinGrafiikka;
+    /**
+     * Puskurikuvan grafiikkaolio
+     */
     private final Graphics2D kuvanGrafiikka;
 
+    /**
+     * Luo uuden Grafiikka-olion
+     *
+     * @param piirtoPaneeli Piirtopaneeli, johon grafiikka piirretään
+     */
     public Grafiikka(PiirtoPaneeli piirtoPaneeli) {
         paneelinGrafiikka = (Graphics2D) piirtoPaneeli.getGraphics();
         puskuriKuva = new BufferedImage(Peli.IKKUNAN_LEVEYS, Peli.IKKUNAN_KORKEUS, BufferedImage.TYPE_INT_RGB);
@@ -42,8 +60,6 @@ public final class Grafiikka extends PeliSilmukka<Piirros> {
      */
     public void piirraTausta() {
         kuvanGrafiikka.drawImage(taustaKuva, null, 0, 0);
-//        kuvanGrafiikka.setColor(Color.lightGray);
-//        kuvanGrafiikka.fillRect(0, 0, Peli.IKKUNAN_LEVEYS, Peli.IKKUNAN_KORKEUS);
     }
 
     /**

@@ -26,8 +26,8 @@ public class LiikkuvaTestiLuokka implements Liikutettava {
 
     @Override
     public void liiku(Suunta suunta) {
-        x += suunta.getXSuunta();
-        y += suunta.getYSuunta();
+        x += suunta.getX();
+        y += suunta.getY();
     }
 
 }

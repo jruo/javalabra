@@ -13,6 +13,9 @@ import javax.imageio.ImageIO;
  */
 public class KuvanLataaja {
 
+    /**
+     * Kartta, joka osoittaa kuvien tiedostonimet ladattuihin kuviin
+     */
     private static final Map<String, BufferedImage> ladatutKuvat = new HashMap<>();
 
     /**

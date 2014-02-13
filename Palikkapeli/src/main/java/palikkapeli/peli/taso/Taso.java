@@ -29,7 +29,13 @@ import palikkapeli.ui.grafiikka.Piirros;
  */
 public final class Taso {
 
+    /**
+     * Kartta, joka osoittaa id:n tiettyyn luokkaan
+     */
     private static final Map<Integer, Class<? extends PeliOlio>> olionID = new HashMap<>();
+    /**
+     * Kaksiulotteinen taulukko tason luokkien id:istä
+     */
     private final int[][] taso;
 
     static {
@@ -47,6 +53,11 @@ public final class Taso {
         olionID.put(101, TasonResetoija.class);
     }
 
+    /**
+     * Luo uuden Tason annetuilla id:illä
+     *
+     * @param taso Kaksiulotteinen taulukko olioiden id:istä
+     */
     public Taso(int[][] taso) {
         this.taso = taso;
     }

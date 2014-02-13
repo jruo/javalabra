@@ -14,12 +14,27 @@ import palikkapeli.peli.Peli;
  */
 public final class Ruudukko<T> {
 
+    /**
+     * Kuinka suuri yksi ruudukon ruutu on ikkunassa pikseleinä
+     */
     public static final int RUUDUN_KOKO = 20;
 
+    /**
+     * Kaksiulotteinen taulukko Settejä, jotka sisältävät ruudukon oliot
+     */
     private final Set<T>[][] oliot;
+    /**
+     * Kartta, joka osoittaa jokaisen ruudukon olion sijainnin
+     */
     private final Map<T, Ruutu> sijainnit;
+    /**
+     * Ruudukon leveys ja korkeus
+     */
     private final int leveys, korkeus;
 
+    /**
+     * Luo uuden Ruudukko-olion
+     */
     public Ruudukko() {
         leveys = Peli.IKKUNAN_LEVEYS / RUUDUN_KOKO;
         korkeus = Peli.IKKUNAN_KORKEUS / RUUDUN_KOKO;

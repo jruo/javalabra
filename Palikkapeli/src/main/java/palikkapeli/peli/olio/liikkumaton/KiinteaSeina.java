@@ -10,6 +10,12 @@ import palikkapeli.ui.grafiikka.Piirros;
  */
 public class KiinteaSeina extends PeliOlio {
 
+    /**
+     * Luo uuden KiinteaSeina-olion annettuihin koordinaatteihin
+     *
+     * @param x X
+     * @param y Y
+     */
     public KiinteaSeina(int x, int y) {
         super(x, y);
     }

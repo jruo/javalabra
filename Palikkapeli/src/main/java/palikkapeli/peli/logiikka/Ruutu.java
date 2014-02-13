@@ -7,8 +7,17 @@ package palikkapeli.peli.logiikka;
  */
 public class Ruutu {
 
+    /**
+     * Ruudun sijainti Ruudukossa (ei pikseleinä, vaan taulukon indekseinä)
+     */
     private final int x, y;
 
+    /**
+     * Luo uuden Ruutu-olion annettuun sijaintiin
+     *
+     * @param x X-sijainti
+     * @param y Y-sijainti
+     */
     public Ruutu(int x, int y) {
         this.x = x;
         this.y = y;
@@ -40,7 +49,7 @@ public class Ruutu {
      * @return Viereinen ruutu
      */
     public final Ruutu viereinen(Suunta suunta) {
-        return new Ruutu(x + suunta.getXSuunta(), y + suunta.getYSuunta());
+        return new Ruutu(x + suunta.getX(), y + suunta.getY());
     }
 
     @Override

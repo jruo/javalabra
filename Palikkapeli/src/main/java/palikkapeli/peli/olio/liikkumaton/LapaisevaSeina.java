@@ -10,6 +10,12 @@ import palikkapeli.peli.olio.PeliOlio;
  */
 public abstract class LapaisevaSeina extends PeliOlio implements Varillinen {
 
+    /**
+     * Luo uuden LapaisevaSeina-olion annettuihin koordinaatteihin
+     *
+     * @param x X
+     * @param y Y
+     */
     public LapaisevaSeina(int x, int y) {
         super(x, y);
     }

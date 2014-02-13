@@ -4,11 +4,18 @@ import palikkapeli.peli.logiikka.Vari;
 import palikkapeli.ui.grafiikka.Piirros;
 
 /**
+ * Sinisen pelaajan maali
  *
  * @author Janne Ruoho
  */
 public class SininenTasonMaali extends TasonMaali {
 
+    /**
+     * Luo uuden SininenTasonMaali annettuihin koordinaatteihin
+     *
+     * @param x X
+     * @param y Y
+     */
     public SininenTasonMaali(int x, int y) {
         super(x, y);
     }
@@ -24,5 +31,4 @@ public class SininenTasonMaali extends TasonMaali {
         piirros.lisaaKuva(5, 5, "/kuvat/sininenmaali.png");
         return piirros;
     }
-
 }

@@ -10,6 +10,12 @@ import palikkapeli.ui.grafiikka.Piirros;
  */
 public class SininenPelaaja extends Pelaaja {
 
+    /**
+     * Luo uuden SininenPelaaja-olion annettuihin koordinaatteihin
+     *
+     * @param x X
+     * @param y Y
+     */
     public SininenPelaaja(int x, int y) {
         super(x, y);
     }

@@ -15,8 +15,16 @@ public enum Nappain {
     OIKEA(KeyEvent.VK_RIGHT),
     VALILYONTI(KeyEvent.VK_SPACE),
     R(KeyEvent.VK_R);
+    /**
+     * Näppäinkoodi
+     */
     private final int nappainkoodi;
 
+    /**
+     * Nappain
+     *
+     * @param nappainkoodi Näppäinen näppäinkoodi
+     */
     private Nappain(int nappainkoodi) {
         this.nappainkoodi = nappainkoodi;
     }

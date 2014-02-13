@@ -10,6 +10,12 @@ import javax.swing.JPanel;
  */
 public class PiirtoPaneeli extends JPanel {
 
+    /**
+     * Luo uuden PiirtoPaneelin annetulla leveydellä ja korkeudella
+     *
+     * @param leveys Leveys pikseleinä
+     * @param korkeus Korkeus pikseleinä
+     */
     public PiirtoPaneeli(int leveys, int korkeus) {
         setPreferredSize(new Dimension(leveys, korkeus));
     }

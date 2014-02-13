@@ -15,9 +15,21 @@ import palikkapeli.peli.olio.liikkumaton.LapaisevaSeina;
  */
 public abstract class LiikkuvaPeliOlio extends PeliOlio implements Varillinen {
 
+    /**
+     * Onko olio liikkumassa tällä hetkellä
+     */
     private boolean liikkumassa;
+    /**
+     * Suunta, johon olio on liikkumassa
+     */
     private Suunta liikkumissuunta;
 
+    /**
+     * Luo uuden LiikkuvaPeliOlio-olion annettuihin koordinaatteihin
+     *
+     * @param x X
+     * @param y Y
+     */
     public LiikkuvaPeliOlio(int x, int y) {
         super(x, y);
     }
@@ -74,8 +86,8 @@ public abstract class LiikkuvaPeliOlio extends PeliOlio implements Varillinen {
     public final void suoritaLogiikka() {
         suoritaLiikkuvaLogiikka();
         if (liikkumassa) {
-            x += liikkumissuunta.getXSuunta() * 2;
-            y += liikkumissuunta.getYSuunta() * 2;
+            x += liikkumissuunta.getX() * 2;
+            y += liikkumissuunta.getY() * 2;
             if (ruudukko.onKohdistettu(x, y)) {
                 liikkumassa = false;
             }

@@ -15,13 +15,25 @@ import palikkapeli.ui.grafiikka.Piirros;
  */
 public abstract class PeliOlio implements Looginen, Ohjattava {
 
+    /**
+     * PeliOlion sijainti ikkunassa pikseleinä
+     */
     protected int x, y;
+    /**
+     * Lyhenne Peli.INSTANSSILLE, käytettävissä aliluokissa
+     */
     protected final Peli peli;
+    /**
+     * Lyhenne Peli.INSTANSSI.getOliot()
+     */
     protected final Oliot oliot;
+    /**
+     * Lyhenne Peli.INSTANSSI.getRuudukko()
+     */
     protected final Ruudukko ruudukko;
 
     /**
-     * Luo PeliOlion annettuun Peliin ja koordinaatteihin
+     * Luo PeliOlion annettuihin koordinaatteihin
      *
      * @param x X-koordinaatti
      * @param y Y-koordinaatti

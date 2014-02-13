@@ -6,13 +6,23 @@ import palikkapeli.peli.olio.apuolio.PelaajanVaihtaja;
 import palikkapeli.peli.olio.liikkuva.Pelaaja;
 
 /**
+ * Pelaajien maali
  *
  * @author Janne Ruoho
  */
 public abstract class TasonMaali extends PeliOlio implements Varillinen {
 
+    /**
+     * Onko pelaaja jo käsitelty
+     */
     private boolean pelaajaPoistettu;
 
+    /**
+     * Luo uuden TasonMaalin annettuihin koordinaatteihin
+     *
+     * @param x X
+     * @param y Y
+     */
     public TasonMaali(int x, int y) {
         super(x, y);
         pelaajaPoistettu = false;

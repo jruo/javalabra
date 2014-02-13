@@ -13,8 +13,14 @@ import palikkapeli.peli.Peli;
  */
 public class Ikkuna extends JFrame {
 
+    /**
+     * Piirtopaneeli grafiikalle
+     */
     private PiirtoPaneeli piirtoPaneeli;
 
+    /**
+     * Luo uuden Ikkunan
+     */
     public Ikkuna() {
         setResizable(false);
         luoPaneeli(Peli.IKKUNAN_LEVEYS, Peli.IKKUNAN_KORKEUS);
