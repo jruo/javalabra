@@ -3,6 +3,9 @@ palikkapeli.peli
 palikkapeli.peli.logiikka
 palikkapeli.peli.logiikka.ohjaus
 palikkapeli.peli.olio
+palikkapeli.peli.olio.apuolio
+palikkapeli.peli.olio.liikkumaton
+palikkapeli.peli.olio.liikkuva
 palikkapeli.peli.taso
 palikkapeli.ui
 palikkapeli.ui.grafiikka
