@@ -2,7 +2,6 @@ package palikkapeli.peli.taso;
 
 import java.util.ArrayList;
 import java.util.List;
-import palikkapeli.peli.Peli;
 
 /**
  * Huolehtii tasojen vaihtamisesta
@@ -43,10 +42,7 @@ public final class TasonVaihtaja {
      */
     public void resetoiNykyinenTaso() {
         String tiedostonimi = tasot.get(nykyinenTaso);
-
-        Peli.INSTANSSI.getGrafiikka().pysayta(); // Estetään ruudun välkkyminen resetoinnin aikana
         luoTaso(tiedostonimi);
-        Peli.INSTANSSI.getGrafiikka().kaynnista();
     }
 
     /**

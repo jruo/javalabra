@@ -1,6 +1,5 @@
 package palikkapeli.peli.olio.liikkumaton;
 
-import java.awt.Color;
 import palikkapeli.peli.logiikka.Vari;
 import palikkapeli.ui.grafiikka.Piirros;
 
@@ -21,9 +20,9 @@ public class PunainenTasonMaali extends TasonMaali {
 
     @Override
     public Piirros luoOmaPiirros() {
-        Piirros p = new Piirros(this);
-        p.lisaaSuorakulmio(5, 5, 10, 10, Color.red, true);
-        return p;
+        Piirros piirros = new Piirros(this);
+        piirros.lisaaKuva(5, 5, "/kuvat/punainenmaali.png");
+        return piirros;
     }
 
 }

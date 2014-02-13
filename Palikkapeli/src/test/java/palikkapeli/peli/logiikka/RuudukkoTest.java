@@ -11,7 +11,7 @@ import org.junit.Test;
  */
 public class RuudukkoTest {
 
-    private RuudukkoTestiLuokka o1, o2, o3, o4;
+    private RuudukkoTestiLuokka o1, o2, o3, o4, o5;
     private Ruudukko<RuudukkoTestiLuokka> ruudukko;
 
     @Before
@@ -20,11 +20,13 @@ public class RuudukkoTest {
         o2 = new RuudukkoTestiLuokka();
         o3 = new RuudukkoTestiLuokka();
         o4 = new RuudukkoTestiLuokka();
+        o5 = new RuudukkoTestiLuokka();
         ruudukko = new Ruudukko<>();
 
         ruudukko.lisaaOlio(o1, new Ruutu(0, 0));
         ruudukko.lisaaOlio(o2, new Ruutu(1, 1));
         ruudukko.lisaaOlio(o3, new Ruutu(4, 4));
+        ruudukko.lisaaOlio(o5, new Ruutu(4, 4));
     }
 
     @Test
@@ -122,6 +124,24 @@ public class RuudukkoTest {
         assertEquals(true, ruudukko.oliotRuudussa(new Ruutu(0, 0)).contains(o1));
         assertEquals(false, ruudukko.oliotRuudussa(new Ruutu(0, 0)).contains(o2));
         assertEquals(true, ruudukko.oliotRuudussa(new Ruutu(1, 1)).contains(o2));
+    }
+
+    @Test
+    public void oliotRuudussaRuudukonUlkopuolellaPalauttaaTyhjanListan() {
+        assertEquals(true, ruudukko.oliotRuudussa(new Ruutu(-1, -1)).isEmpty());
+        assertEquals(true, ruudukko.oliotRuudussa(new Ruutu(0, -1)).isEmpty());
+        assertEquals(true, ruudukko.oliotRuudussa(new Ruutu(0, -10)).isEmpty());
+        assertEquals(true, ruudukko.oliotRuudussa(new Ruutu(50, 0)).isEmpty());
+    }
+
+    @Test
+    public void suodataRuudunOliotPalauttaaSuodattimenJokaHyvaksyyVainRuudunOliot() {
+        Suodatin<RuudukkoTestiLuokka> suodatin = ruudukko.suodataRuudunOliot(new Ruutu(4, 4));
+        assertEquals(true, suodatin.hyvaksy(o3));
+        assertEquals(true, suodatin.hyvaksy(o5));
+        assertEquals(false, suodatin.hyvaksy(o1));
+        assertEquals(false, suodatin.hyvaksy(o2));
+        assertEquals(false, suodatin.hyvaksy(o4));
     }
 
     @Test

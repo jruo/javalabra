@@ -29,6 +29,15 @@ public abstract class Pelaaja extends LiikkuvaPeliOlio implements Liikutettava {
         this.ohjattavissa = ohjattavissa;
     }
 
+    /**
+     * Palauttaa ohjattavissa-tilan
+     *
+     * @return true jos ohjattavissa, false muutoin
+     */
+    public boolean onOhjattavissa() {
+        return ohjattavissa;
+    }
+
     @Override
     public final void liiku(Suunta suunta) {
         if (ohjattavissa) {

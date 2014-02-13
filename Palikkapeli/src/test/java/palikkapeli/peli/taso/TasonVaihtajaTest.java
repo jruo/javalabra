@@ -1,5 +1,6 @@
 package palikkapeli.peli.taso;
 
+import java.lang.reflect.Field;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,9 +17,12 @@ public class TasonVaihtajaTest {
     Peli peli;
 
     @Before
-    public void setUp() {
+    public void setUp() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         peli = Peli.INSTANSSI;
         vaihtaja = new TasonVaihtaja();
+        Field vaih = Peli.class.getDeclaredField("tasonVaihtaja");
+        vaih.setAccessible(true);
+        vaih.set(peli, vaihtaja);
         vaihtaja.getTasot().clear();
         vaihtaja.getTasot().add("/tasot/taso");
         vaihtaja.getTasot().add("/tasot/taso2");
@@ -27,19 +31,29 @@ public class TasonVaihtajaTest {
 
     @Test
     public void seuraavaTasoToimii() {
-        peli.getTasonVaihtaja().seuraavaTaso();
+        vaihtaja.seuraavaTaso();
         assertEquals(false, peli.getRuudukko().onTyhja(new Ruutu(0, 0)));
         assertEquals(true, peli.getRuudukko().onTyhja(new Ruutu(1, 0)));
-        peli.getTasonVaihtaja().seuraavaTaso();
+        vaihtaja.seuraavaTaso();
         assertEquals(true, peli.getRuudukko().onTyhja(new Ruutu(0, 0)));
         assertEquals(true, peli.getRuudukko().onTyhja(new Ruutu(1, 0)));
-        peli.getTasonVaihtaja().seuraavaTaso();
-        assertEquals(true, peli.getRuudukko().onTyhja(new Ruutu(0, 0)));
-        assertEquals(true, peli.getRuudukko().onTyhja(new Ruutu(1, 0)));
-        assertEquals(false, peli.getRuudukko().onTyhja(new Ruutu(4, 4)));
-        peli.getTasonVaihtaja().seuraavaTaso();
+        vaihtaja.seuraavaTaso();
         assertEquals(true, peli.getRuudukko().onTyhja(new Ruutu(0, 0)));
         assertEquals(true, peli.getRuudukko().onTyhja(new Ruutu(1, 0)));
         assertEquals(false, peli.getRuudukko().onTyhja(new Ruutu(4, 4)));
+        vaihtaja.seuraavaTaso();
+        assertEquals(true, peli.getRuudukko().onTyhja(new Ruutu(0, 0)));
+        assertEquals(true, peli.getRuudukko().onTyhja(new Ruutu(1, 0)));
+        assertEquals(false, peli.getRuudukko().onTyhja(new Ruutu(4, 4)));
+    }
+
+    @Test
+    public void tasonResetointiToimii() {
+        vaihtaja.seuraavaTaso();
+        assertEquals(false, peli.getRuudukko().onTyhja(new Ruutu(0, 0)));
+        peli.getRuudukko().alustaRuudukko();
+        assertEquals(true, peli.getRuudukko().onTyhja(new Ruutu(0, 0)));
+        vaihtaja.resetoiNykyinenTaso();
+        assertEquals(false, peli.getRuudukko().onTyhja(new Ruutu(0, 0)));
     }
 }

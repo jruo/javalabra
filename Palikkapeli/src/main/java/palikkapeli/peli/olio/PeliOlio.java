@@ -23,7 +23,6 @@ public abstract class PeliOlio implements Looginen, Ohjattava {
     /**
      * Luo PeliOlion annettuun Peliin ja koordinaatteihin
      *
-     * @param peli Peli
      * @param x X-koordinaatti
      * @param y Y-koordinaatti
      */
@@ -53,15 +52,6 @@ public abstract class PeliOlio implements Looginen, Ohjattava {
      */
     public final int getY() {
         return y;
-    }
-
-    /**
-     * Palauttaa Pelin
-     *
-     * @return Peli
-     */
-    public final Peli getPeli() {
-        return peli;
     }
 
     /**
@@ -113,7 +103,7 @@ public abstract class PeliOlio implements Looginen, Ohjattava {
      * @return Piirros
      */
     public Piirros luoOmaPiirros() {
-        return new Piirros(this);
+        return null;
     }
 
     @Override
