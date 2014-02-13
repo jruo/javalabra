@@ -3,3 +3,7 @@ Nuolinäppäimet:
 
 Välilyönti:
 	Vaihda valittua hahmoa
+
+* Sinisellä hahmolla pystyy liikuttamaan ainoastaan sinisiä laatikoita ja punaisella punaisia.
+* Vain siniset kappaleet voivat kulkea sinisen läpäisevän seinän läpi ja punaiset kappaleet punaisen.
+* Jokaisessa tasossa sininen ja punainen pelaaja täytyy ohjata niiden värejä vastaaviin maaleihin.
