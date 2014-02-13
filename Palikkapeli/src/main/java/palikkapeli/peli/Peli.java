@@ -18,17 +18,50 @@ import palikkapeli.ui.syote.Ohjain;
 public enum Peli {
 
     INSTANSSI;
+    /**
+     * Oliot-kokoelma
+     */
     private final Oliot oliot;
+    /**
+     * Peli-ikkuna
+     */
     private final Ikkuna ikkuna;
+    /**
+     * Ohjain-kokolema
+     */
     private final Ohjain ohjain;
+    /**
+     * Logiikkasilmukka
+     */
     private final Logiikka logiikka;
+    /**
+     * Grafiikkasilmukka
+     */
     private final Grafiikka grafiikka;
+    /**
+     * Näppäimistönkäsittelijä
+     */
     private final Nappaimisto nappaimisto;
+    /**
+     * TasonVaihtaja
+     */
     private final TasonVaihtaja tasonVaihtaja;
+    /**
+     * Ruudukko tason PeliOlioille
+     */
     private final Ruudukko<PeliOlio> ruudukko;
+    /**
+     * Peli-ikkunan leveys pikseleinä
+     */
     public static final int IKKUNAN_LEVEYS = 500;
+    /**
+     * Peli-ikkunan korkeus pikseleinä
+     */
     public static final int IKKUNAN_KORKEUS = 420;
 
+    /**
+     * Peli
+     */
     Peli() {
         ikkuna = new Ikkuna();
         grafiikka = new Grafiikka(ikkuna.getPiirtoPaneeli());
