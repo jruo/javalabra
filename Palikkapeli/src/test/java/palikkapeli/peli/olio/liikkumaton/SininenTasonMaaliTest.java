@@ -20,7 +20,7 @@ public class SininenTasonMaaliTest {
     }
 
     @Test
-    public void variOnPunainen() {
+    public void variOnSininen() {
         assertEquals(Vari.SININEN, maali.getVari());
     }
 
