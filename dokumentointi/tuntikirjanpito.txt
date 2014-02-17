@@ -69,3 +69,11 @@ Ajankäytön kohde: Uusia peliolioita, refaktorointia yms
 [13.02.]
 Käytetty aika: ~8h
 Ajankäytön kohde: Lisää javadocia, uusia kaavioita, uusia testejä
+
+[15-16.02.]
+Käytetty aika: ~3h
+Ajankäytön kohde: Pari uutta pelioliota ja kaikenlaista pientä
+
+[17.02.]
+Käytetty aika: ~1h
+Ajankäytön kohde: Muutama testi
