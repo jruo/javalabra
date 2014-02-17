@@ -52,6 +52,7 @@ public final class Ruudukko<T> {
                 oliot[i][j] = new HashSet<>();
             }
         }
+        sijainnit.clear();
     }
 
     /**

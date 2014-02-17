@@ -1,6 +1,7 @@
 package palikkapeli.ui.grafiikka.alkeispiirros;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 
 /**
@@ -18,6 +19,10 @@ public class Teksti extends Alkeispiirros implements Muokattava<String> {
      * Tekstin väri
      */
     private final Color vari;
+    /**
+     * Tekstin fontti
+     */
+    private Font fontti;
 
     /**
      * Luo uuden Tekstin
@@ -33,8 +38,20 @@ public class Teksti extends Alkeispiirros implements Muokattava<String> {
         this.vari = vari;
     }
 
+    /**
+     * Asettaa tekstin fontin
+     *
+     * @param fontti Fontti
+     */
+    public void setFontti(Font fontti) {
+        this.fontti = fontti;
+    }
+
     @Override
     public void piirra(Graphics2D g) {
+        if (fontti != null) {
+            g.setFont(fontti);
+        }
         g.setColor(vari);
         g.drawString(teksti, x, y);
     }

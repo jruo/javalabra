@@ -7,5 +7,5 @@ package palikkapeli.peli.logiikka;
  */
 public enum Vari {
 
-    SININEN, PUNAINEN;
+    SININEN, PUNAINEN, EI_MIKAAN;
 }

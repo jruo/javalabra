@@ -14,7 +14,8 @@ public enum Nappain {
     VASEN(KeyEvent.VK_LEFT),
     OIKEA(KeyEvent.VK_RIGHT),
     VALILYONTI(KeyEvent.VK_SPACE),
-    R(KeyEvent.VK_R);
+    R(KeyEvent.VK_R),
+    ENTER(KeyEvent.VK_ENTER);
     /**
      * Näppäinkoodi
      */

@@ -2,10 +2,9 @@ package palikkapeli.peli.olio.liikkuva;
 
 import palikkapeli.peli.logiikka.Ruutu;
 import palikkapeli.peli.logiikka.Suunta;
+import palikkapeli.peli.logiikka.Vari;
 import palikkapeli.peli.logiikka.Varillinen;
 import palikkapeli.peli.olio.PeliOlio;
-import palikkapeli.peli.olio.liikkumaton.KiinteaSeina;
-import palikkapeli.peli.olio.liikkumaton.LapaisevaSeina;
 
 /**
  * PeliOlio, joka pystyy liikkumaan ruudukossa. Liikkuvan PeliOlion täytyy olla
@@ -13,7 +12,7 @@ import palikkapeli.peli.olio.liikkumaton.LapaisevaSeina;
  *
  * @author Janne Ruoho
  */
-public abstract class LiikkuvaPeliOlio extends PeliOlio implements Varillinen {
+public abstract class LiikkuvaPeliOlio extends PeliOlio {
 
     /**
      * Onko olio liikkumassa tällä hetkellä
@@ -46,7 +45,7 @@ public abstract class LiikkuvaPeliOlio extends PeliOlio implements Varillinen {
             liikkumissuunta = suunta;
             return true;
         }
-        return false;
+        return liikkumassa;
     }
 
     /**
@@ -55,7 +54,7 @@ public abstract class LiikkuvaPeliOlio extends PeliOlio implements Varillinen {
      * estäviä muita olioita
      *
      * @param suunta Liikuttava suunta
-     * @return true jos pystyy liikkumaan, false muutoin
+     * @return false jos ei pysty liikkumaan, true muutoin
      */
     public final boolean voiLiikkuaSuuntaan(Suunta suunta) {
         final Ruutu siirryttava = omaRuutu().viereinen(suunta);
@@ -63,20 +62,17 @@ public abstract class LiikkuvaPeliOlio extends PeliOlio implements Varillinen {
         if (!ruudukko.onKohdistettu(x, y)) {
             return false; //ei voi liikkua, jos ruutujen välissä
         }
-        if (ruudukko.onTyyppiRuudussa(KiinteaSeina.class, siirryttava)) {
-            return false; //jos ruudussa on seinä
-        }
-        if (ruudukko.onTyyppiRuudussa(Pelaaja.class, siirryttava)) {
-            return false; //jos ruudussa on pelaaja
-        }
-        if (ruudukko.onTyyppiRuudussa(LapaisevaSeina.class, siirryttava)) {
-            LapaisevaSeina seina = oliot.getLuokanOlio(LapaisevaSeina.class, ruudukko.suodataRuudunOliot(siirryttava));
-            if (seina.getVari() != getVari()) {
-                return false; //jos ruudussa on läpäisevä seinä, mutta väärän värinen
-            }
-        }
         if (!hyvaksySiirryttavaRuutu(siirryttava)) {
-            return false; //jos jotain muuta mitä aliluokan olio ei hyväksy
+            return false; //tarkistetaan aliluokan omat liikkumisrajoitukset
+        }
+        if (ruudukko.onTyyppiRuudussa(Varillinen.class, siirryttava)) {
+            Varillinen varillinen = oliot.getLuokanOlio(Varillinen.class, ruudukko.suodataRuudunOliot(siirryttava));
+            if (varillinen.getVari() != getVari() || varillinen.getVari() == Vari.EI_MIKAAN) {
+                return false;
+                //ei voi liikkua, jos ruudussa on jokin olio, jonka väri eroaa
+                //liikutettavan olion väristä, tai olio on väritön (esim.
+                //kiinteä seinä tai liikkuva piikkiseinä)
+            }
         }
 
         return true; //voi liikkua
@@ -92,7 +88,7 @@ public abstract class LiikkuvaPeliOlio extends PeliOlio implements Varillinen {
                 liikkumassa = false;
             }
         }
-        if (!omaRuutu().equals(sijaintiRuuduksi())) {
+        if (omaRuutu() != null && !omaRuutu().equals(sijaintiRuuduksi())) {
             ruudukko.siirraOlio(this, sijaintiRuuduksi());
         }
     }
@@ -108,7 +104,7 @@ public abstract class LiikkuvaPeliOlio extends PeliOlio implements Varillinen {
      * Tarkistaa pystyykö aliluokan olio siirtymään annettuun ruutuun
      *
      * @param siirryttava Tarkistettava ruutu
-     * @return true, jos pystyy siirtymään, false muutoin
+     * @return false jos ei pysty liikkumaan, muutoin true
      */
     public abstract boolean hyvaksySiirryttavaRuutu(Ruutu siirryttava);
 

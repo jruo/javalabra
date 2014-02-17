@@ -24,9 +24,11 @@ public final class TasonVaihtaja {
     private int nykyinenTaso;
 
     static {
+        tasot.add("/tasot/tasoPeliAlku");
         tasot.add("/tasot/taso1");
         tasot.add("/tasot/taso2");
         tasot.add("/tasot/taso3");
+        tasot.add("/tasot/tasoPeliLoppu");
     }
 
     /**

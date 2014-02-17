@@ -5,6 +5,8 @@ import palikkapeli.peli.logiikka.Looginen;
 import palikkapeli.peli.logiikka.Oliot;
 import palikkapeli.peli.logiikka.Ruudukko;
 import palikkapeli.peli.logiikka.Ruutu;
+import palikkapeli.peli.logiikka.Vari;
+import palikkapeli.peli.logiikka.Varillinen;
 import palikkapeli.peli.logiikka.ohjaus.Ohjattava;
 import palikkapeli.ui.grafiikka.Piirros;
 
@@ -13,7 +15,7 @@ import palikkapeli.ui.grafiikka.Piirros;
  *
  * @author Janne Ruoho
  */
-public abstract class PeliOlio implements Looginen, Ohjattava {
+public abstract class PeliOlio implements Looginen, Ohjattava, Varillinen {
 
     /**
      * PeliOlion sijainti ikkunassa pikseleinä
@@ -120,5 +122,10 @@ public abstract class PeliOlio implements Looginen, Ohjattava {
 
     @Override
     public void suoritaLogiikka() {
+    }
+
+    @Override
+    public Vari getVari() {
+        return Vari.EI_MIKAAN;
     }
 }

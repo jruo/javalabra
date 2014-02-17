@@ -27,7 +27,7 @@ public class SininenTasonMaali extends TasonMaali {
 
     @Override
     public Piirros luoOmaPiirros() {
-        Piirros piirros = new Piirros(this);
+        Piirros piirros = new Piirros(this, 2);
         piirros.lisaaKuva(5, 5, "/kuvat/sininenmaali.png");
         return piirros;
     }
