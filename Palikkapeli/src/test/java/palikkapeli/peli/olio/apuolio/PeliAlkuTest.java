@@ -38,9 +38,9 @@ public class PeliAlkuTest {
     @Test
     public void suoritaLogiikkaToimii() {
         pa.suoritaLogiikka();
-        assertEquals(-4761, pa.getY());
+        assertEquals(-4807, pa.getY());
         pa.suoritaLogiikka();
-        assertEquals(-4534, pa.getY());
+        assertEquals(-4622, pa.getY());
 
     }
 

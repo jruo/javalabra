@@ -1,10 +1,7 @@
 package palikkapeli.peli.olio.apuolio;
 
-import java.awt.Color;
-import java.awt.Font;
 import palikkapeli.peli.olio.PeliOlio;
 import palikkapeli.ui.grafiikka.Piirros;
-import palikkapeli.ui.grafiikka.alkeispiirros.Teksti;
 
 /**
  * Näyttää pelaajalle lopputekstit
@@ -27,15 +24,7 @@ public class PeliLoppu extends PeliOlio {
 
     @Override
     public Piirros luoOmaPiirros() {
-        Piirros p = new Piirros(this);
-        Teksti teksti = p.lisaaTeksti(70, 180, "Pääsit pelin läpi!", Color.BLACK);
-        Font fontti = new Font("Arial", 1, 37);
-        teksti.setFontti(fontti);
-
-        Teksti teksti2 = p.lisaaTeksti(100, 220, "Janne Ruoho 2014 - Ohjelmoinnin harjoitustyö", Color.GRAY);
-        Font fontti2 = new Font("Arial", 0, 13);
-        teksti2.setFontti(fontti2);
-        return p;
+        return new Piirros(this, "/kuvat/lopputeksti.png");
     }
 
 }
