@@ -77,3 +77,7 @@ Ajankäytön kohde: Pari uutta pelioliota ja kaikenlaista pientä
 [17.02.]
 Käytetty aika: ~1h
 Ajankäytön kohde: Muutama testi
+
+[24.02.]
+Käyteytty aika: ~2h
+Ajankäytön kohde: Projektin viimeistelyä

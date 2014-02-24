@@ -1,0 +1,7 @@
+Staattinen Peli-singleton -luokka pitää kaikki pelin komponentit kasassa. Peli rakentuu useista komponenteista, joista tärkeimmät ovat Logiikka ja Grafiikka, jotka periytyvät PeliSilmukasta. Jokainen PeliSilmukka on oma säikeensä, joka päivittää siihen lisätyt (periytyy PeliKokoelmasta) oliot 60 kertaa sekunnissa.
+
+Jokainen itse pelaamiseen liityvä olio (Pelaaja, Seinä, Laatikot yms) periytyvät PeliOliosta. PeliOliot tallennetaan useisiin eri kokoelmiin niiden ominaisuuksista riippuen; Logiikka, Grafiikka, Ohjaus, Oliot, Ruudukko...
+
+Jokaisella PeliOliolla oma Piirros (periaatteessa mahdollisuus useampaankin), joka kuvaa oliota ruudulla. Piirros voi koostua useista kuvista, teksteistä, viivoista tai suorakulmioista.
+
+Se, että jokaiselle eri väriselle oliolle on oma luokkansa (SininenPelaaja, PunainenPelaaja, SininenLaatikko, PunainenLaatikko yms) saattaa vaikuttaa turhalta, mutta se oikeastaan selkeyttää koodia johtuen tasojen lataamistyylistä. Jokaiselle oliolle, joka ladataan tasotiedostosta on oma id, esim 11=SininenPelaaja, 12=PunainenPelaaja. Jos olisi pelkkä Pelaaja-luokka, tasot joutuisi määrittelemään niin että jokaisella id:llä on vielä jotain lisämääreitä, esim 10.1 ja 10.2, joka tekisi tasojen luonnista vaikeaa. (Täytyisi tehdä erillinen tasonrakennustyökalu)
