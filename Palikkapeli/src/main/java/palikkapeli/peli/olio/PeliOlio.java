@@ -98,7 +98,7 @@ public abstract class PeliOlio implements Looginen, Ohjattava, Varillinen {
     /**
      * Palauttaa Ruutu-olion, jossa tämä olio sijaitsee Ruudukon tiedossa
      *
-     * @return
+     * @return Olion Ruutu
      */
     public final Ruutu omaRuutu() {
         return ruudukko.olionRuutu(this);

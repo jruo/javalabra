@@ -37,7 +37,7 @@ public enum Suunta {
     /**
      * Palauttaa suunnan suuntavektorin y-komponentin
      *
-     * @return
+     * @return Y
      */
     public final int getY() {
         return y;

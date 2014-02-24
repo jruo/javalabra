@@ -1,9 +1,10 @@
-Nuolinäppäimet:
+NuolinÃ¤ppÃ¤imet:
 	Liikuta valittua hahmoa
 
-Välilyönti:
+VÃ¤lilyÃ¶nti:
 	Vaihda valittua hahmoa
 
-* Sinisellä hahmolla pystyy liikuttamaan ainoastaan sinisiä laatikoita ja punaisella punaisia.
-* Vain siniset kappaleet voivat kulkea sinisen läpäisevän seinän läpi ja punaiset kappaleet punaisen.
-* Jokaisessa tasossa sininen ja punainen pelaaja täytyy ohjata niiden värejä vastaaviin maaleihin.
+* SinisellÃ¤ hahmolla pystyy liikuttamaan ainoastaan sinisiÃ¤ laatikoita ja punaisella punaisia.
+* Vain siniset kappaleet voivat kulkea sinisen lÃ¤pÃ¤isevÃ¤n seinÃ¤n lÃ¤pi ja punaiset kappaleet punaisen.
+* Jokaisessa tasossa sininen ja punainen pelaaja tÃ¤ytyy ohjata niiden vÃ¤rejÃ¤ vastaaviin maaleihin.
+* VÃ¤ltÃ¤ liikkuvia piikkiseiniÃ¤, osuessasi niihin taso resetoituu

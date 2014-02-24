@@ -36,7 +36,7 @@ public class Ruutu {
     /**
      * Palauttaa ruudun y-sijainnin ruudukossa
      *
-     * @return
+     * @return y-sijainti
      */
     public final int getY() {
         return y;
